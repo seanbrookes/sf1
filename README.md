@@ -1,7 +1,9 @@
 
-Base project for Simple Framework One
+Base project for tuduqu
 
-- a simple core application bootstrap
+personal curration
+
+- keep track of your stuff across the web
 
 - Sean Brookes
 
