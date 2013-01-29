@@ -70,9 +70,12 @@ app.configure(function(){
 	app.use(express.cookieParser('the secret string'));
 	app.use(express.session({
 		//maxAge: new Date(Date.now() + 3600000),
-		store: new MongoStore({
-			db: config.db.db
-		}),
+
+		// commented out to get launched on heroku
+		// will need to be fixed in order to auth sessions
+//		store: new MongoStore({
+//			db: config.db.db
+//		}),
 		secret: config.salt,
 		cookie: {
 			path     : '/',
