@@ -265,7 +265,6 @@ http.createServer(app).listen(app.get('port'), function(){
 
 
 	var db = mongoose.connect(dbConString, mongoOptions ,function(err){
-		console.log('| - IN DEB CONNECTION ATTEMPT - SEAN LOOK HERE');
 		if(err){
 			console.log('|');
 			console.log('|');
