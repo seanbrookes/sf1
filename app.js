@@ -202,7 +202,23 @@ app.configure('development', function(){
 	app.use(express.errorHandler());
 	//app.set('db-uri', 'mongodb://localhost:27017/plentyofood');
 });
+var dbConString;
+//	var constring1 = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+//	var conString2 = 'mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892/';
 
+app.configure('development', function(){
+	dbConString = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+
+});
+app.configure('production', function(){
+	dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+	//dbConString = 'mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892/';
+});
+dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+console.log('dbConnString: ' + dbConString);
+// mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892
+
+var mongoOptions = { db: { safe: true }};
 //app.get('/', routes.index);
 //app.get('/producers', producers.getFVOPAProducers);
 //app.get('/users', user.list);
@@ -231,24 +247,31 @@ http.createServer(app).listen(app.get('port'), function(){
 // TODO - parameterize the name of the application
 // TODO - set configuration to enable and turn off this messaging
 
+	/*
+	 "connect-mongo": "0.2.x",
+
+	 */
 	console.log("|	" + config.app.friendlyName + " app server listening on port " + app.get('port'));
 	console.log('|');
 	console.log('|');
-	console.log('|	Initialize Db connection');
+	//console.log('|	Initialize Db connection');
 	console.log('|');
-	var db = mongoose.connect('http://' + config.db.host + ':' + config.db.port +'/' + config.db.db,function(err){
-		console.log('|');
+
+
+	var db = mongoose.connect(dbConString, mongoOptions ,function(err){
+		console.log('| - IN DEB CONNECTION ATTEMPT - SEAN LOOK HERE');
 		if(err){
 			console.log('|');
 			console.log('|');
 			console.log('--------------------------------');
-			console.log('|	' + config.db.db + ' [db] connection error : ' + err);
+			//console.log('|	' + dbConString + ' [db] connection error : ' + err);
+			console.log('|	 [db] connection error : ' + err);
 			console.log('--------------------------------');
 			console.log('|');
 		}
 		else{
 			console.log('|');
-			console.log('|	Connected to db');
+			console.log('|	Connected to db	');
 			console.log('|');
 			console.log('|');
 		}
@@ -258,6 +281,45 @@ http.createServer(app).listen(app.get('port'), function(){
 		console.log('|');
 
 	});
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//	var db = mongoose.connect('http://' + config.db.host + ':' + config.db.port +'/' + config.db.db,function(err){
+//		console.log('|');
+//		if(err){
+//			console.log('|');
+//			console.log('|');
+//			console.log('--------------------------------');
+//			console.log('|	' + config.db.db + ' [db] connection error : ' + err);
+//			console.log('--------------------------------');
+//			console.log('|');
+//		}
+//		else{
+//			console.log('|');
+//			console.log('|	Connected to db');
+//			console.log('|');
+//			console.log('|');
+//		}
+//		console.log('|==========================================');
+//		console.log('|==========================================');
+//		console.log('|');
+//		console.log('|');
+//
+//	});
 //	var dbConnection = db.connections[0];
 //	function mongoStoreConnectionArgs(dbConnection) {
 //		return {
