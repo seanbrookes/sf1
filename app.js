@@ -234,7 +234,7 @@ http.createServer(app).listen(app.get('port'), function(){
 	console.log("|	" + config.app.friendlyName + " app server listening on port " + app.get('port'));
 	console.log('|');
 	console.log('|');
-	console.log('|	Initialize sf1 Db connection');
+	console.log('|	Initialize Db connection');
 	console.log('|');
 	var db = mongoose.connect('http://' + config.db.host + ':' + config.db.port +'/' + config.db.db,function(err){
 		console.log('|');
