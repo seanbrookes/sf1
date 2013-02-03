@@ -9,14 +9,14 @@
 define(
 	['text!/modules/index/index-template.html'],
 	function(markup) {
-		log('Index module loaded ');
+		sf1.log('Index module loaded ');
 
 		var anchorSelector = '#TemplateContainer';
 		// namespace for var reference in template
 		_.templateSettings.variable = 'S';
 
 		function init(){
-			log('Index module init');
+			sf1.log('Index module init');
 			var baseMarkup = $(markup);
 			$(anchorSelector).html(baseMarkup);
 			var indexModuleContainer = $('script#IndexModuleContainer').html();
@@ -35,16 +35,16 @@ define(
 			*
 			* */
 			$('#TestButton').click(function(event){
-				sf1.io.ajax({
+				$.ajax({
 					type:'get',
 					url:'/isauth',
 					success:function(response){
-						log('hell ya!');
-						log(response);
+						sf1.log('hell ya!');
+						sf1.log(response);
 					},
 					error:function(response){
-						log('hell no');
-						log(response);
+						sf1.log('hell no');
+						sf1.log(response);
 					}
 				});
 			});

@@ -18,8 +18,8 @@ var AppRouter = Backbone.Router.extend({
 	},
 
 	index:function () {
-		log('index');
-		SF.EventBus.trigger('route-event',{route:'index'});
+		sf1.log('index');
+
 		require(['../modules/index/index-module'],function(module){
 			module.init();
 		});
@@ -28,28 +28,38 @@ var AppRouter = Backbone.Router.extend({
 
 
 	signup:function () {
-		log('signup route');
-		SF.EventBus.trigger('route-event',{route:'signup'});
+		sf1.log('signup route');
 		securityModule.initSignup();
 
 	},
 
 	login:function () {
-		log('login route');
-		SF.EventBus.trigger('route-event',{route:'login'});
+		sf1.log('login route');
 		securityModule.initLogin();
 
 	},
 
 	admin:function () {
-		log('admin route');
-		SF.EventBus.trigger('route-event',{route:'admin'});
+		sf1.log('admin route');
+
+		/*
+		*
+		* Test to see if the module should be loaded
+		* - is the current user authenticated
+		* - if they are do they have permission to load the admin module
+		*
+		* need a central property mapped to event listeners on login / logout
+		*
+		* could test the cookie
+		*
+		* need to determine is this a framework issue or an application/security issue
+		*
+		* also maps to IA and other areas of the application.
+		*
+		* */
 		require(['../modules/admin/admin-module'],function(module){
 			module.init();
 		});
-		// load admin view/module
-		//adminModule.init();
-
 	}
 
 
@@ -57,15 +67,3 @@ var AppRouter = Backbone.Router.extend({
 
 var router = new AppRouter();
 Backbone.history.start();
-
-$(document).ready(function(){
-	_.templateSettings.variable = "G";
-
-	//iaModule.init();
-
-	SF.EventBus.bind('route-event',function(event){
-		log('router - route-event detected');
-	});
-
-
-});

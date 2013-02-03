@@ -31,8 +31,8 @@
 	// usage: POF.log('inside coolFunc',this,arguments);
 	// inspired by: http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
 	sf1.log =  function(){
-		log.history = log.history || [];   // store logs to an array for reference
-		log.history.push(arguments);
+		sf1.log.history = sf1.log.history || [];   // store logs to an array for reference
+		sf1.log.history.push(arguments);
 		if(exports.console){
 			console.log( Array.prototype.slice.call(arguments) );
 		}
@@ -51,7 +51,7 @@
 	// declare a name-spaced event bus
 	sf1.EventBus = $(Object.create({}));
 	sf1.translate = function(){
-		log('translate this string key: ' + JSON.stringify(arguments) + '  with this locale value: ' + getUserLocale());
+		sf1.log('translate this string key: ' + JSON.stringify(arguments) + '  with this locale value: ' + sf1.getUserLocale());
 		return arguments[0];
 	};
 

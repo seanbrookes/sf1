@@ -11,14 +11,14 @@
 define(
 	["modules/admin/admin-i18n","text!/modules/admin/admin-template.html"],
 	function(i18n,markup) {
-		log('Admin module loaded ');
+		sf1.log('Admin module loaded ');
 
 		var anchorSelector = '#TemplateContainer';
 		_.templateSettings.variable = 'P';
 
 
 		function init(){
-			log('Admin module init');
+			sf1.log('Admin module init');
 			var baseMarkup = $(markup);
 			$(anchorSelector).html(baseMarkup);
 			var adminModuleContainer = $('script#AdminModuleContainer').html();
@@ -31,17 +31,17 @@ define(
 			$('.main-content-wrapper').html(templateMarkup);
 
 			$('.btn-list-pending').click(function(event){
-				log('list accounts');
+				sf1.log('list accounts');
 				$.ajax({
 					type:'get',
 					url:'/pendingaccounts',
 					success:function(response){
-						log('success get pending accounts');
-						log(response);
+						sf1.log('success get pending accounts');
+						sf1.log(response);
 
 					},
 					error:function(response){
-						log('error get pending accounts: ' + response);
+						sf1.log('error get pending accounts: ' + response);
 					}
 				});
 			});

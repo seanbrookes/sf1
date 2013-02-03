@@ -4,7 +4,7 @@
  * references:
  * - http://stackoverflow.com/questions/6819911/nodejs-expressjs-session-handling-with-mongodb-mongoose
  *
- *
+ *adminsf1@beachair.ca/hawkeye4
  *
  * http://thawing-bastion-1261.herokuapp.com/
  *
@@ -12,14 +12,10 @@
  *
  */
 var express = require('express')
-//, config = require('./config')
 	, routes = require('./routes')
 	, user = require('./routes/user')
 	, admin = require('./routes/admin')
 	, UserModel = require('./models/user-model')
-//	, geoizr = require('./routes/geoizr')
-//	, organization = require('./routes/organization')
-//	, producers = require('./routes/producers')
 	, http = require('http')
 	, path = require('path')
 	//, MongoStore = require('connect-mongo')(express)
@@ -204,10 +200,6 @@ app.configure(function(){
 	app.use(app.router);
 });
 
-app.configure('development', function(){
-	app.use(express.errorHandler());
-	//app.set('db-uri', 'mongodb://localhost:27017/plentyofood');
-});
 var dbConString;
 //	var constring1 = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
 //	var conString2 = 'mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892/';
@@ -219,23 +211,14 @@ app.configure('development', function(){
 app.configure('production', function(){
 	dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
 	//dbConString = 'mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892/';
+	app.use(express.errorHandler());
 });
 dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
 console.log('dbConnString: ' + dbConString);
 // mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892
 
 var mongoOptions = { db: { safe: true }};
-//app.get('/', routes.index);
-//app.get('/producers', producers.getFVOPAProducers);
-//app.get('/users', user.list);
-//app.get('/geoizr', geoizr.getGeoLocation);
-//app.post('/geoizr', geoizr.postGeoLocation);
-//app.get('/organization', organization.getOrganizations);
-//app.get('/organization/:id', organization.getOrganization);
-//app.post('/organization', organization.newOrganization);
-//app.put('/organization/:id', organization.updateOrganization);
-//app.delete('/organization/:id', organization.deleteOrganization);
-//
+
 app.get('/logout',user.logout);
 app.get('/isauth',user.isUserAuth);
 app.post('/auth',user.postAuthenticate);

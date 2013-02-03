@@ -12,6 +12,8 @@
  *  - http://crackstation.net/hashing-security.htm
  *
  *
+ * http://lostechies.com/derickbailey/2011/05/24/dont-do-role-based-authorization-checks-do-activity-based-checks/
+ *
  *  TODO stabilize the message structure back to the client
  *
  */
@@ -190,22 +192,17 @@ exports.postAuthenticate = function(req, res){
 							req.session.userName = user.userName;
 							req.session.userId = user._id;
 
-							if (exports.isUserAuth(req)) {
-								console.log('user successfully authenticated: ' + req.session.userName);
-								logger.info('user successfully authenticated: ' + req.session.userName);
 
-								// TODO - message content and structure
-								res.send({
-									isAuthenticated: req.session.isAuthenticated,
-									userName:req.session.userName,
-									userId:req.session.userId
-								});
-							} else {
+							console.log('user successfully authenticated: ' + req.session.userName);
+							logger.info('user successfully authenticated: ' + req.session.userName);
 
-								// TODO - message content and structure
-								logger.info('user failed session initialization: ' + user);
-								res.send({ isAuthenticated: false});
-							}
+							// TODO - message content and structure
+							res.send({
+								isAuthenticated: req.session.isAuthenticated,
+								userName:req.session.userName,
+								userId:req.session.userId
+							});
+
 
 						}
 						// no user but no error
@@ -276,8 +273,8 @@ exports.postAuthenticate = function(req, res){
  * @param req
  * @return {Boolean}
  */
- exports.isUserAuth = function(req){
-	return req.session.isAuthenticated ? true : false;
+ exports.isUserAuth = function(req, res){
+	res.send({isAuthenticated:req.session.isAuthenticated ? true : false,userName:req.session.userName});
 };
 /*
  *
