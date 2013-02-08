@@ -1,58 +1,60 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-    <head>
-        <meta charset="utf-8">
+<head>
 
-        <meta name="viewport" content="initial-scale=1.0, width=device-width, maximum-scale=1.0">
-        <title>Simple Framework One</title>
-        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="initial-scale=1.0, width=device-width">
 
-
-        <!--
-            TODO - resolve to one stylesheet for the base app
-        -->
-        <link rel="stylesheet" type="text/css" href="css/style.css">
-        <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
-    </head>
-
-    <body >
-
-        <!-- Body Markup -->
-        <div class="main-content ui-container">
-            <header class="page-header">
+    <title>Simple Framework One</title>
 
 
-            </header>
-            <div class="main-content-wrapper ui-container">
 
+    <!--
+        TODO - resolve to one stylesheet for the base app
+    -->
+    <link rel="stylesheet" type="text/css" href="css/style.css">
+    <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
 
-            </div>
-        </div>
+</head>
 
-        <!-- DOM location for dynamically loaded template markup -->
-        <div id="TemplateContainer"></div>
+<body >
 
+<!-- Body Markup -->
+<div class="viewport ui-container">
 
-        <!-- Scripts -->
+    <header class="page-header"></header>
 
-        <!-- jQuery -->
-        <script type="text/javascript" src="scripts/lib/jquery-1.8.2.min.js"></script>
+    <div class="main-content-wrapper ui-container">
 
-        <!-- jQuery plugins -->
-        <script type="text/javascript" src="scripts/lib/plugins/jquery.cookie.js"></script>
+        <!-- application content goes here -->
 
-        <!-- Libraries -->
-        <script type="text/javascript" src="scripts/lib/underscore.js"></script>
-        <script type="text/javascript" src="scripts/lib/backbone.js"></script>
-        <script type="text/javascript" src="scripts/lib/json2.js"></script>
+    </div>
 
-        <!-- TODO - move these to a module -->
-        <script type="text/javascript" src="modules/ui/ckeditor/ckeditor.js"></script>
-        <script type="text/javascript" src="modules/ui/ckeditor/adapters/jquery.js"></script>
+</div>
 
-        <!-- SF1 Application JS -->
-        <script type="text/javascript" src="scripts/sf1.0.1.js"></script>
-        <script data-main="main" src="scripts/lib/require.js"></script>
+<!-- DOM location for dynamically loaded template markup -->
+<div id="TemplateContainer"></div>
 
-    </body>
+<!-- Scripts -->
+<!-- jQuery -->
+<script type="text/javascript" src="scripts/lib/jquery-1.8.2.min.js"></script>
+
+<!-- jQuery plugins -->
+<script type="text/javascript" src="scripts/lib/plugins/jquery.cookie.js"></script>
+<script type="text/javascript" src="scripts/lib/plugins/jquery.prettydate.js"></script>
+
+<!-- Libraries -->
+<script type="text/javascript" src="scripts/lib/underscore.js"></script>
+<script type="text/javascript" src="scripts/lib/backbone.js"></script>
+<script type="text/javascript" src="scripts/lib/json2.js"></script>
+
+<!-- TODO - move these to a module -->
+<script type="text/javascript" src="modules/ui/ckeditor/ckeditor.js"></script>
+<script type="text/javascript" src="modules/ui/ckeditor/adapters/jquery.js"></script>
+
+<!-- SF1 Application JS -->
+<script type="text/javascript" src="scripts/sf1.0.1.js"></script>
+<script data-main="main" src="scripts/lib/require.js"></script>
+
+</body>
 </html>
