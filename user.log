@@ -57,3 +57,28 @@
 {"level":"info","message":"exports.getPendingAccountList we have accounts ","timestamp":"2013-01-25T07:50:20.449Z"}
 {"level":"info","message":"exports.getPendingAccountList we have accounts ","timestamp":"2013-01-25T07:51:10.524Z"}
 {"level":"info","message":"exports.getPendingAccountList we have accounts ","timestamp":"2013-01-26T07:24:44.836Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-01-29T06:50:03.865Z"}
+{"level":"info","message":"new user successfully created [pending activation]: seanbrookes@beachair.ca","timestamp":"2013-01-29T06:50:04.031Z"}
+{"level":"info","message":"new user pending activation token record created: { accountStatus: 'pending',\n  userName: 'seanbrookes@beachair.ca',\n  email: 'seanbrookes@beachair.ca',\n  password: '$2a$10$ZUAzIwdZpeu740ahKGLiHefe3TnrzEsDTTV4dgXNnDvPcN/egpxMy',\n  _id: 5107711b5fa820841a000001,\n  __v: 0,\n  loginAttempts: 0,\n  preferences: [],\n  created: Mon Jan 28 2013 22:50:03 GMT-0800 (PST) }","timestamp":"2013-01-29T06:50:04.057Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:09:24.282Z"}
+{"level":"warn","message":"User.getAuthenticated no error but also missing user object securityI18n.k18IncorrectPassword","timestamp":"2013-01-29T07:09:24.437Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:10:23.786Z"}
+{"level":"info","message":"user successfully authenticated: seanbrookes@beachair.ca","timestamp":"2013-01-29T07:10:23.920Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-01-29T07:12:17.655Z"}
+{"level":"info","message":"new user successfully created [pending activation]: adminsf1@beachair.ca","timestamp":"2013-01-29T07:12:17.766Z"}
+{"level":"info","message":"new user pending activation token record created: { accountStatus: 'pending',\n  userName: 'adminsf1@beachair.ca',\n  email: 'adminsf1@beachair.ca',\n  password: '$2a$10$Y0/wdf5kkVXRtirdcwbwFOKWCpHQHlVmVhRSOJ54A3Fcpx2Ax9TQS',\n  _id: 510776515fa820841a000003,\n  __v: 0,\n  loginAttempts: 0,\n  preferences: [],\n  created: Mon Jan 28 2013 23:12:17 GMT-0800 (PST) }","timestamp":"2013-01-29T07:12:17.769Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:18:44.016Z"}
+{"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-29T07:18:44.132Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:22:29.023Z"}
+{"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-29T07:22:29.135Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:34:33.006Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:34:52.378Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:36:33.074Z"}
+{"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-29T07:36:33.188Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-29T07:37:35.248Z"}
+{"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-29T07:37:35.361Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-30T07:45:09.719Z"}
+{"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-30T07:45:09.861Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-01-31T07:20:13.797Z"}
+{"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-31T07:20:13.932Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-02-03T19:56:30.633Z"}

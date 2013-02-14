@@ -36,7 +36,7 @@ var securityModule = (function(exports,$){
 
 	sf1.EventBus.bind('ia.mainNavRendered',function(event){
 		sf1.log('ia.mainNavRendered');
-		$.ajax({
+		sf1.io.ajax({
 			type:'GET',
 			url:'/isauth',
 			success:function(response){

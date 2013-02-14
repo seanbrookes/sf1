@@ -1,17 +1,12 @@
-    /**
-     * added another test comment
-     */
-
-	/**
-	 * kickoff the app
-	 *
-	 * define SF as Social Framework namespace
-	 *
-	 * export log and EventBus as global objects
-	 *
-	 *
-	 */
-
+/**
+ * kickoff the app
+ *
+ * define SF as Social Framework namespace
+ *
+ * export log and EventBus as global objects
+ *
+ *
+ */
 (function(exports,$){
 	var sf1 = {};
 
@@ -58,4 +53,3 @@
 	exports.sf1 = sf1;
 
 }(window,jQuery));
-

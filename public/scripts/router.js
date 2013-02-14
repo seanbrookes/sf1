@@ -19,7 +19,7 @@ var AppRouter = Backbone.Router.extend({
 
 	index:function () {
 		sf1.log('index');
-
+		sf1.EventBus.trigger('ia.mainNavEvent',{route:'index'});
 		require(['../modules/index/index-module'],function(module){
 			module.init();
 		});
@@ -29,12 +29,14 @@ var AppRouter = Backbone.Router.extend({
 
 	signup:function () {
 		sf1.log('signup route');
+		sf1.EventBus.trigger('ia.mainNavEvent',{route:'signup'});
 		securityModule.initSignup();
 
 	},
 
 	login:function () {
 		sf1.log('login route');
+		sf1.EventBus.trigger('ia.mainNavEvent',{route:'login'});
 		securityModule.initLogin();
 
 	},
@@ -57,7 +59,8 @@ var AppRouter = Backbone.Router.extend({
 		* also maps to IA and other areas of the application.
 		*
 		* */
-		require(['../modules/admin/admin-module'],function(module){
+		sf1.EventBus.trigger('ia.mainNavEvent',{route:'admin'});
+ 		require(['../modules/admin/admin-module'],function(module){
 			module.init();
 		});
 	}

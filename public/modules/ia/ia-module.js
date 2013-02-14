@@ -62,7 +62,7 @@ require(
 					dataAttribs:[
 						{
 							name:'route',
-							value:'home'
+							value:'index'
 						},
 						{
 							name:'i18nkey',
@@ -153,6 +153,30 @@ require(
 				// init main navigation
 				sf1.EventBus.trigger('ia.renderMainNav');
 			});
+			sf1.EventBus.bind('ia.mainNavEvent',function(event,obj){
+				if(!obj){
+					return;
+				}
+				if (obj.route){
+					sf1.EventBus.trigger('ia.setActiveNavItem',{
+						navEl:'.nav-main-list li a',
+						navItem:obj.route
+					});
+				}
+			});
+			sf1.EventBus.bind('ia.setActiveNavItem',function(event,obj){
+				if (!obj){
+					return;
+				}
+				// get a handle on the navigation element
+				// iterate over the children and set the active one
+				var navList = $(obj.navEl);
+				if (navList){
+					$(obj.navEl).removeClass('is-selected');
+					var itemSelector = obj.navEl + '[data-route=' + obj.navItem + ']';
+					$(itemSelector).addClass('is-selected');
+				}
+			});
 			sf1.EventBus.bind('ia.renderMainNav',function(event){
 				// init main navigation
 				_.templateSettings.variable = "P";
@@ -166,7 +190,7 @@ require(
 				var template = _.template($('script#MainNavTemplate').html());
 				var itemTemplate = _.template($('script#MainNavItemTemplate').html());
 
-				$('.main-content header').html(template( templateData ));
+				$('.viewport .page-header').html(template( templateData ));
 				sf1.EventBus.trigger('ia.mainNavRendered');
 				sf1.EventBus.trigger('checkauth-event');
 			});

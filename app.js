@@ -4,12 +4,16 @@
  * references:
  * - http://stackoverflow.com/questions/6819911/nodejs-expressjs-session-handling-with-mongodb-mongoose
  *
- *adminsf1@beachair.ca/hawkeye4
  *
  * http://thawing-bastion-1261.herokuapp.com/
  *
  * TODO - parameterize index.html properties
  *
+ *
+ * original domain server entries on gandi.net
+ * DNS1: a.dns.gandi.net
+ DNS2: b.dns.gandi.net
+ DNS3: c.dns.gandi.net
  */
 var express = require('express')
 	, routes = require('./routes')
@@ -21,16 +25,17 @@ var express = require('express')
 	//, MongoStore = require('connect-mongo')(express)
 	, mongoose = require('mongoose')
 	, winston = require('winston');
+
 var events = require('events');
 var EE = require('events').EventEmitter;
 var EventBus = new EE();
-//var Session = require('connect-mongodb');
 var logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)(),
 		new (winston.transports.File)({ filename: 'app.log' })
 	]
 });
+
 var config = {
 	app: {
 		friendlyName: 'Simple Framework One',
@@ -65,10 +70,10 @@ app.configure(function(){
 
 	app.use(express.cookieParser('the secret string'));
 	app.use(express.session({
-		//maxAge: new Date(Date.now() + 3600000),
 
-		// commented out to get launched on heroku
-		// will need to be fixed in order to auth sessions
+//    maxAge: new Date(Date.now() + 3600000),
+//    commented out to get launched on heroku
+//    will need to be fixed in order to auth sessions
 //		store: new MongoStore({
 //			db: config.db.db
 //		}),
@@ -201,8 +206,6 @@ app.configure(function(){
 });
 
 var dbConString;
-//	var constring1 = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
-//	var conString2 = 'mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892/';
 
 app.configure('development', function(){
 	dbConString = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
@@ -269,56 +272,4 @@ http.createServer(app).listen(app.get('port'), function(){
 		console.log('|');
 
 	});
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-//	var db = mongoose.connect('http://' + config.db.host + ':' + config.db.port +'/' + config.db.db,function(err){
-//		console.log('|');
-//		if(err){
-//			console.log('|');
-//			console.log('|');
-//			console.log('--------------------------------');
-//			console.log('|	' + config.db.db + ' [db] connection error : ' + err);
-//			console.log('--------------------------------');
-//			console.log('|');
-//		}
-//		else{
-//			console.log('|');
-//			console.log('|	Connected to db');
-//			console.log('|');
-//			console.log('|');
-//		}
-//		console.log('|==========================================');
-//		console.log('|==========================================');
-//		console.log('|');
-//		console.log('|');
-//
-//	});
-//	var dbConnection = db.connections[0];
-//	function mongoStoreConnectionArgs(dbConnection) {
-//		return {
-//			dbname: dbConnection.db.databaseName,
-//			host: dbConnection.db.serverConfig.host,
-//			port: dbConnection.db.serverConfig.port//,
-////			username: db.uri.username,
-////			password: db.uri.password
-//		};
-//	}
-//	app.use(express.session({
-//		store: Session(mongoStoreConnectionArgs(dbConnection))
-//	}));
 });
