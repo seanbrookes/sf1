@@ -1,61 +1,88 @@
-    /**
-     * added another test comment
-     */
+/**
+ * Simple Framework One
 
-	/**
-	 * kickoff the app
-	 *
-	 * define SF as Social Framework namespace
-	 *
-	 * export log and EventBus as global objects
-	 *
-	 *
-	 */
+ * User: sean
+ * Date: 11/12/12
+ * Time: 10:43 PM
+ *
+ */
+// Client App
+define(['sf1', 'backbone'],function(sf1, Backbone){
+    var AppRouter = Backbone.Router.extend({
 
-(function(exports,$){
-	var sf1 = {};
+        routes:{
+            "":"index",
+            "home":"index",
+            "login":"login",
+            "signup":"signup",
+            "admin":"admin"
+        },
 
-	sf1.io = Object.create({});
-	sf1.io.ajax = function(ioObj){
-		if (ioObj){
-			// check if there is an ajax request type and other properties
-			// make sure the required parameters (url and type are there )
-			$.ajax(ioObj);
-			log('in sfo.io.ajax');
-			log(ioObj);
+        index:function () {
+            sf1.log('index');
+            sf1.EventBus.trigger('ia.mainNavEvent',{route:'index'});
+            require(['index'],function(module){
+                module.init();
+            });
+            //indexModule.init();
+        },
 
 
-		}
-	};
+        signup:function () {
+            sf1.log('signup route');
+            sf1.EventBus.trigger('ia.mainNavEvent',{route:'signup'});
 
-	// usage: POF.log('inside coolFunc',this,arguments);
-	// inspired by: http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
-	sf1.log =  function(){
-		log.history = log.history || [];   // store logs to an array for reference
-		log.history.push(arguments);
-		if(exports.console){
-			console.log( Array.prototype.slice.call(arguments) );
-		}
-	};
-	var defaultLocale = 'en';
-	sf1.getUserLocale = function(){
-		var returnVal;
-		if ($.cookie('userLocale')){
-			returnVal = $.cookie('userLocale');// get cookie value
-		}
-		else{
-			returnVal = defaultLocale;
-		}
-		return returnVal;
-	};
-	// declare a name-spaced event bus
-	sf1.EventBus = $(Object.create({}));
-	sf1.translate = function(){
-		log('translate this string key: ' + JSON.stringify(arguments) + '  with this locale value: ' + getUserLocale());
-		return arguments[0];
-	};
+            require(['security'],function(module){
+                module.initSignup();
+            });
 
-	exports.sf1 = sf1;
+        },
 
-}(window,jQuery));
+        login:function () {
+            sf1.log('login route');
+            sf1.EventBus.trigger('ia.mainNavEvent',{route:'login'});
+
+            require(['security'],function(module){
+                module.initLogin();
+            });
+//
+//            securityModule.initLogin();
+
+        },
+
+        admin:function () {
+            sf1.log('admin route');
+
+            /*
+             *
+             * Test to see if the module should be loaded
+             * - is the current user authenticated
+             * - if they are do they have permission to load the admin module
+             *
+             * need a central property mapped to event listeners on login / logout
+             *
+             * could test the cookie
+             *
+             * need to determine is this a framework issue or an application/security issue
+             *
+             * also maps to IA and other areas of the application.
+             *
+             * */
+            sf1.EventBus.trigger('ia.mainNavEvent',{route:'admin'});
+            require(['../modules/admin/admin-module'],function(module){
+                module.init();
+            });
+        }
+
+
+    });
+    return {
+        AppRouter:AppRouter,
+        sf1:sf1
+    };
+});
+
+
+
+
 

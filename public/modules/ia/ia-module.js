@@ -1,215 +1,207 @@
 /**
- * Social Framework
+ * Simple Framework One
 
  * User: sean
  * Date: 25/12/12
  * Time: 11:18 PM
  *
  */
-require(
-	["modules/ia/ia-i18n","text!/modules/ia/ia-template.html"],
-	function(i18n,template) {
+define(
+	['marionette', 'i18n', 'client', 'text!/modules/ia/ia-template.html', 'text!/modules/ia/config.json'],
+	function(Marionette, i18n, App, template, config) {
 
-		var that = this;
-		bindEventListeners();
-
-		sf1.log('IA module loaded ');
-		sf1.log('user locale: ' + sf1.getUserLocale());
-		var anchorSelector = '#TemplateContainer';
 		_.templateSettings.variable = 'P';
-		init();
-		sf1.EventBus.trigger('ia.templatesLoaded');
 
 
-		//var iaModule = (function(exports,$){
-			//_.templateSettings.variable = "P";
+
+        var sf1 = App.sf1;
+        var anchorSelector = '#TemplateContainer';
+
+        var mainNavCollection = {};
+        var globalNavCollection = {};
+        // IA base model
+        var navConfigObj = {};
+
+        var baseMarkup;
+
+		/*
+		 * Nav Item Model / Collection
+		 *
+		 * */
+		var NavItemModel = Backbone.Model.extend({});
+		var NavItemCollection = Backbone.Collection.extend({
+			model: NavItemModel
+		});
+        /*
+        * 
+        * Marionette Views
+        * 
+        * */
+        var NavItemView = Backbone.Marionette.ItemView.extend({
+            template: '#NavItemTemplate',
+            tagName: 'li'
+        });
+
+        /*
+        * MainNavView
+        *
+        * */
+        var MainNavView = Backbone.Marionette.CollectionView.extend({
+            tagName: 'ul',
+            className: 'nav-main-list nav'
+
+        });
+
+        /*
+         * GlobalNavView
+         *
+         * */
+        var GlobalNavView = Backbone.Marionette.CollectionView.extend({
+            tagName: 'ul',
+            className: 'nav-global-list nav nav-pills'
+
+        });
 
 
-//			function init(callback){
-//
-//				$(anchorSelector).load('modules/ia/ia-template.html',function(template){
-//
-//					if (callback){
-//						callback();
-//					}
-//
-//
-//				});
-//			}
+
+
+
 
 		function init(){
-			var baseMarkup = $(template);
+
+			sf1.log('IA module init ');
+
+			// attach the module template markup to the DOM
+			baseMarkup = $(template);
 			$(anchorSelector).html(baseMarkup);
+            /*
+            * initialize data store mdel
+            *
+            * */
+            navConfigObj = JSON.parse(config);
+
+			bindEventListeners();
+
+			sf1.EventBus.trigger('ia.initComplete');
+
 		}
 
-		var renderAttrib = function(attrib){
-				return 'x';
-			};
-
-		function getMainNavMenuData(){
-				var templateData = {};
-				templateData.mainNavItems = [];
-				/*
-				 *
-				 * home
-				 *
-				 * */
-				templateData.mainNavItems.push({
-					href:'#home',
-					cssClasses:[
-						'main-nav-item'
-					],
-					dataAttribs:[
-						{
-							name:'route',
-							value:'index'
-						},
-						{
-							name:'i18nkey',
-							value:'baseI18n.k18Home'
-						}
-					],
-					title:sf1.translate(iaI18n.k18Home),
-					name:sf1.translate(iaI18n.k18Home)
-				});
-				/*
-				 *
-				 * admin
-				 *
-				 * */
-				templateData.mainNavItems.push({
-					cssClasses:[
-						'main-nav-item'
-					],
-					dataAttribs:[
-						{
-							name:'route',
-							value:'admin'
-						},
-						{
-							name:'i18nkey',
-							value:'iaI18n.k18Admin'
-						}
-					],
-					href:'#admin',
-					title:sf1.translate(iaI18n.k18Admin),
-					name:sf1.translate(iaI18n.k18Admin)
-				});
-				/*
-				 *
-				 * login
-				 *
-				 * */
-				templateData.mainNavItems.push({
-					cssClasses:[
-						'main-nav-item',
-						'cmd-auth'
-					],
-					dataAttribs:[
-						{
-							name:'route',
-							value:'login'
-						},
-						{
-							name:'i18nkey',
-							value:'iaI18n.k18Login'
-						}
-					],
-					href:'#login',
-					title:sf1.translate(iaI18n.k18Login),
-					name:sf1.translate(iaI18n.k18Login)
-				});
-
-			// test to make sure the user is authenicated or not before rendering this nav item
-			// TODO - enhance the security to embed this logic
-			if (!sf1.isUserAuth()){
-				sf1.log('checking if user is not authenticated');
-				/*
-				 *
-				 * signup
-				 *
-				 * */
-				templateData.mainNavItems.push({
-					href:'#signup',
-					cssClasses:[
-						'main-nav-item'
-					],
-					dataAttribs:[
-						{
-							name:'route',
-							value:'signup'
-						},
-						{
-							name:'i18nkey',
-							value:'iaI18n.k18SignUp'
-						}
-					],
-					title:sf1.translate(iaI18n.k18SignUp),
-					name:sf1.translate(iaI18n.k18SignUp)
-
-				});
-			}
-			else{
-				sf1.log('user is not authenticated');
-			}
-
-
-				return templateData;
-
-			}
-
+        /*
+        *
+         *   EVENT LISTENERS
+         *
+         *
+        * */
 		function bindEventListeners(){
-			sf1.EventBus.bind('ia.templatesLoaded',function(event){
-				// init main navigation
-				sf1.EventBus.trigger('ia.renderMainNav');
+			/*
+
+			*   templates loaded
+			* */
+			sf1.EventBus.bind('ia.initComplete',function(event){
+
+                sf1.EventBus.trigger('ia.renderMainNavRequest');
+                sf1.EventBus.trigger('ia.renderGlobalNavRequest');
+
 			});
-			sf1.EventBus.bind('ia.mainNavEvent',function(event,obj){
-				if(!obj){
-					return;
-				}
-				if (obj.route){
-					sf1.EventBus.trigger('ia.setActiveNavItem',{
-						navEl:'.nav-main-list li a',
-						navItem:obj.route
-					});
-				}
-			});
-			sf1.EventBus.bind('ia.setActiveNavItem',function(event,obj){
-				if (!obj){
-					return;
-				}
-				// get a handle on the navigation element
-				// iterate over the children and set the active one
-				var navList = $(obj.navEl);
-				if (navList){
-					$(obj.navEl).removeClass('is-selected');
-					var itemSelector = obj.navEl + '[data-route=' + obj.navItem + ']';
-					$(itemSelector).addClass('is-selected');
-				}
-			});
-			sf1.EventBus.bind('ia.renderMainNav',function(event){
-				// init main navigation
-				_.templateSettings.variable = "P";
-				var templateData = getMainNavMenuData();
+
+            /*
+             *
+             * render main nav
+             *
+             * */
+            sf1.EventBus.bind('ia.renderMainNavRequest',function(event){
+
+                // set the initial main nav markup
+                var mainNavShell = $('#MainNavTemplate').html();
+                $('.page-header').after(mainNavShell);
+
+                var mainNavView = new MainNavView({
+                    itemView: NavItemView,
+                    collection: new NavItemCollection(navConfigObj.mainNav)
+                });
+                $('.main-nav-container .navbar-inner').html(mainNavView.render().$el);
+
+                $('.nav-main-list').i18n();
+
+                sf1.EventBus.trigger('ia.mainNavRenderComplete');
+                //sf1.EventBus.trigger('checkauth-event');
+            });
+            /*
+             *
+             * render global nav
+             *
+             * */
+            sf1.EventBus.bind('ia.renderGlobalNavRequest',function(event){
+
+                // set the initial main nav markup
+                var globalNavShell = $('#GlobalNavTemplate').html();
+                $('.page-header').append(globalNavShell);
 
 
-				sf1.log('Render main nav view');
-//		var signUpFormMarkup = $('script#SignUpTemplate').html();
-//		var textE = $('script#OrganizationListTemplate').html();
+                var globalNavView = new GlobalNavView({
+                    itemView: NavItemView,
+                    collection: new NavItemCollection(navConfigObj.globalNav)
+                });
+                $('.global-nav-container').html(globalNavView.render().$el);
 
-				var template = _.template($('script#MainNavTemplate').html());
-				var itemTemplate = _.template($('script#MainNavItemTemplate').html());
+                $('.nav-global-list').i18n();
+                sf1.EventBus.trigger('ia.globalNavRenderComplete');
 
-				$('.viewport .page-header').html(template( templateData ));
-				sf1.EventBus.trigger('ia.mainNavRendered');
-				sf1.EventBus.trigger('checkauth-event');
-			});
+                sf1.EventBus.trigger('checkauth-event');
+            });
 
 		}
+        return {
+          init:function(){
+              return init();
+          }
+        };
+
+
 	}
+
 
 );
 
+
+
+
+
+///*
+// *
+// *   main nav event
+// *
+// * */
+//sf1.EventBus.bind('ia.mainNavEvent',function(event,obj){
+//    if(!obj){
+//        return;
+//    }
+//    if (obj.route){
+//        sf1.EventBus.trigger('ia.setActiveNavItem',{
+//            navEl:'.nav-main-list li a',
+//            navItem:obj.route
+//        });
+//    }
+//});
+///*
+// *
+// * set active nav item
+// *
+// *
+// * */
+//sf1.EventBus.bind('ia.setActiveNavItem',function(event,obj){
+//    if (!obj){
+//        return;
+//    }
+//    // get a handle on the navigation element
+//    // iterate over the children and set the active one
+//    var navList = $(obj.navEl);
+//    if (navList){
+//        $(obj.navEl).removeClass('is-selected');
+//        var itemSelector = obj.navEl + '[data-route=' + obj.navItem + ']';
+//        $(itemSelector).addClass('is-selected');
+//    }
+//});
 
 
 

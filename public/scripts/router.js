@@ -68,5 +68,18 @@ var AppRouter = Backbone.Router.extend({
 
 });
 
-var router = new AppRouter();
-Backbone.history.start();
+$.i18n.init({
+    lng: "en"
+}, function(t) {
+
+    SF1 = new Backbone.Marionette.Application();
+    SF1.addRegions({
+            mainRegion: "main-content-wrapper"
+    });
+
+    var router = new AppRouter(t);
+    Backbone.history.start();
+
+});
+
+

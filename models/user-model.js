@@ -28,7 +28,8 @@ var UserSchema = new Schema({
 	created: {type: Date, default: Date.now },
 	preferences: [],
 	loginAttempts: { type: Number, required: true, default: 0 },
-	lockUntil: { type: Number }
+	lockUntil: { type: Number },
+	activationToken : {type: String, unique: true } // temporary property used when setting up a new account
 });
 
 UserSchema.pre('save', function(next) {

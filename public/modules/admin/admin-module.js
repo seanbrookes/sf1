@@ -7,15 +7,14 @@
  *
  *
  */
-
 define(
-	["modules/admin/admin-i18n","text!/modules/admin/admin-template.html"],
-	function(i18n,markup) {
+	['client', 'modules/admin/admin-i18n','text!/modules/admin/admin-template.html'],
+	function(App, i18n,markup) {
+        var sf1 = App.sf1;
 		sf1.log('Admin module loaded ');
 
 		var anchorSelector = '#TemplateContainer';
 		_.templateSettings.variable = 'P';
-
 
 		function init(){
 			sf1.log('Admin module init');
@@ -37,7 +36,16 @@ define(
 					url:'/pendingaccounts',
 					success:function(response){
 						sf1.log('success get pending accounts');
+						var outPutMarkup = '';
 						sf1.log(response);
+						if (response.length){
+							for (var i = 0;i < response.length;i++){
+								var user = response[i];
+								outPutMarkup += '<li><a href="#">' + user.userName  + '</a></li>';
+								//sf1.log('response[' + i +  '][' + JSON.stringify(response[i]) + ']');
+							}
+							$('.pending-account-list').html(outPutMarkup);
+						}
 
 					},
 					error:function(response){
@@ -51,5 +59,3 @@ define(
 		};
 	}
 );
-
-

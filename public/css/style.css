@@ -39,9 +39,14 @@ h3 {
 
 
 
-.nav-main-list li{
+.global-nav-container{
+    float:right;
+}
+.nav-global-list{
+    list-style: none;
+
+}
+.nav-global-list li{
     display:inline;
-    padding:4px;
-    border-right:1px solid #eee;
 }
 

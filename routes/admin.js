@@ -15,9 +15,12 @@
  * adminsf1@beachair.ca - hawkeye4
  *
  */
-var User = require('../models/user-model'),
-	PendingUser = require('../models/pendingUser-model'),
-	winston = require('winston');
+var User = require('../models/user-model');
+var PendingUser = require('../models/pendingUser-model');
+var winston = require('winston');
+var events = require('events');
+var EE = require('events').EventEmitter;
+var $ = require('jquery');
 
 var logger = new (winston.Logger)({
 	transports: [
@@ -25,10 +28,13 @@ var logger = new (winston.Logger)({
 		new (winston.transports.File)({ filename: 'pendinguser.log' })
 	]
 });
-exports.getPendingAccountList = function(req, res){
 
-	PendingUser.find(function(err,doc){
-		logger.info('exports.getPendingAccountList we have accounts ');
-		res.send(doc);
+exports.getPendingAccountList = function(req, res){
+	User.find({accountStatus:'pending'},function(err,dox){
+		if(err){
+			logger.error(err.message);
+			return res.send(400);
+		}
+		return res.send(dox);
 	});
 };

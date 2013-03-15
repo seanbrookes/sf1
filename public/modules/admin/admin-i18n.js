@@ -6,3 +6,4 @@
  * Time: 8:45 AM
  *
  */
+define(function(){});

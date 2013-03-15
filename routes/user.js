@@ -18,10 +18,12 @@
  *
  */
 
-var User = require('../models/user-model'),
-	PendingUser = require('../models/pendingUser-model'),
-  winston = require('winston');
-
+var User = require('../models/user-model');
+var PendingUser = require('../models/pendingUser-model');
+var winston = require('winston');
+var events = require('events');
+var EE = require('events').EventEmitter;
+var EventBus = new EE();
 var logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)(),
@@ -55,10 +57,12 @@ exports.createUser = function(req, res){
 		var user = {
 			userName: userName,
 			email: userName,
-			password: password
+			password: password,
+			activationToken: getToken(),
+			accountStatus: 'pending'
 		};
 		var newUser = new User(user);
-		newUser.accountStatus = 'pending';
+
 		/*
 		* test to see if the user already exists before creating
 		*
@@ -68,70 +72,55 @@ exports.createUser = function(req, res){
 		*
 		* */
 		User.findOne({email: req.body.email}, function (err, existingUser) {
-			if (!err) {
+			if(err){
+				logger.error('exception testing for existing user: ' + err.message);
+				return res.send(500, 'exception testing for existing user: ' + err.message);
+			}
 
-				if (!existingUser) {
-					/*
-						CREATE NEW USER - SAVE
+			/*
+			*
+			* GREEN LIGHT - create the account
+			*
+			* */
+			if (!existingUser) {
+				/*
+					CREATE NEW USER - SAVE
+				 */
+				newUser.save(function(err) {
+					if (err) {
+						logger.error('ERROR saving new user: ' + err.message);
+						return res.send(500,'ERROR saving new user: ' + err.message);
+					}
+
+					/**
+					 * New user creation success test
 					 */
-					newUser.save(function(err) {
+					User.findOne({ _id: newUser._id }, function(err, user) {
 						if (err) {
-							logger.error('ERROR saving new user: ' + err.message);
-							res.send(400);
+							logger.error('ERROR looking for new user: ' + err.message);
+							return res.send(500,'ERROR looking for new user: ' + err.message);
 						}
+						/*
 
-						/**
-						 * New user creation success test
-						 */
-						User.findOne({ _id: newUser._id }, function(err, user) {
-							if (err) {
-								logger.error('ERROR looking for new user: ' + err.message);
-								res.send(400);
-							}
-							/*
+						we have created and saved user [pending activation]
 
-							we have created and saved user [pending activation]
+						  */
+						logger.info('new user successfully created [pending activation]: ' + newUser.userName);
 
-							  */
-							logger.info('new user successfully created [pending activation]: ' + newUser.userName);
-							/**
-							 * create a pending user token
-							 *
-							 * save new record to new pending User collection
-							 * @type {PendingUser}
-							 *
-							 */
-							var pendingUser = new PendingUser({
-								userId:user._id,
-								token:getToken()
-							});
+						return res.send(user);
 
-							pendingUser.save(function(err){
-								if (err){
-									logger.error('save pending user token error: ' + err.message);
-									res.send(400);
-								}
-								logger.info('new user pending activation token record created: ' + user);
-								// TODO - wrap this with more protection - establish a consistent response message structure
-								res.send(user);
-							});
-
-
-						});
 					});
-				} else {
-					// Does exist, update reginfo with the values from req.body and then
-					// TODO confirm this level of logging / structure
-					logger.info('createUser request: user already exists' + user);
-					console.log(' user exists');
-					// call reginfo.save
-				}
+				});
 			}
-			else{
-				logger.error('ERROR trying see if a user exists: ' + err.message);
-				 // TODO wrap this with more established message structure to the client
-				res.send(400);
+			else {
+				// Does exist, update reginfo with the values from req.body and then
+				// TODO confirm this level of logging / structure
+				logger.warn('createUser request: user already exists' + JSON.stringify(user));
+				return res.send(400,'create user request: user already exists');
+				// call reginfo.save
 			}
+
+
 		});
 
 
@@ -174,6 +163,7 @@ var getToken = function(){
 exports.postAuthenticate = function(req, res){
 	logger.info('login attempt');
 	if (req.body){
+        logger.info(JSON.stringify(req.body));
 		if(req.body.email && req.body.password){
 			try{
 				/**
@@ -190,6 +180,9 @@ exports.postAuthenticate = function(req, res){
 						if (user){
 							console.log('THIS USER IS LOGGED IN: ' + user);
 							req.session.isAuthenticated = true;
+							res.cookie('isAuthenticated',true);
+							res.cookie('userName',user.userName);
+							res.cookie('userId',user._id);
 							req.session.userName = user.userName;
 							req.session.userId = user._id;
 							console.log('Session User Name: ' + req.session.userName);

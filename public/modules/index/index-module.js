@@ -7,8 +7,10 @@
  *
  */
 define(
-	['text!/modules/index/index-template.html'],
-	function(markup) {
+	['client','text!/modules/index/index-template.html'],
+	function(App, markup) {
+        
+        var sf1 = App.sf1;
 		sf1.log('Index module loaded ');
 
 		var anchorSelector = '#TemplateContainer';
@@ -49,6 +51,11 @@ define(
 				});
 			});
 
+
+
+//			var editor = ace.edit("editor");
+//			editor.setTheme("ace/theme/monokai");
+//			editor.getSession().setMode("ace/mode/javascript");
 		}
 		return {
 			init:init

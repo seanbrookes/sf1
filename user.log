@@ -82,3 +82,48 @@
 {"level":"info","message":"login attempt","timestamp":"2013-01-31T07:20:13.797Z"}
 {"level":"info","message":"user successfully authenticated: adminsf1@beachair.ca","timestamp":"2013-01-31T07:20:13.932Z"}
 {"level":"info","message":"login attempt","timestamp":"2013-02-03T19:56:30.633Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-02-22T15:51:28.798Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-02-22T16:01:59.609Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-02-28T06:53:42.002Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-01T05:53:01.898Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-01T16:02:24.129Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-02T00:54:01.947Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-02T16:44:41.283Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-02T16:46:48.618Z"}
+{"level":"info","message":"new user successfully created [pending activation]: s@s.com","timestamp":"2013-03-02T16:46:48.759Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-02T16:55:14.180Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-03T15:19:08.558Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-03T15:22:59.841Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:15:50.143Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:16:36.962Z"}
+{"level":"info","message":"new user successfully created [pending activation]: x@x.com","timestamp":"2013-03-14T15:16:37.077Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:17:40.692Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"14eh9on4\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:17:40.695Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:17:47.786Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"tm2wo2v6\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:17:47.791Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:17:48.321Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"w4e3jj0m\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:17:48.323Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:17:48.631Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"0z28r8gs\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:17:48.634Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:17:48.891Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"wn8epjqt\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:17:48.895Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:17:49.173Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"u8lnvundefinedq1\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:17:49.175Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-03-14T15:20:30.979Z"}
+{"level":"warn","message":"createUser request: user already exists{\"userName\":\"seanbrookes@beachair.ca\",\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\",\"activationToken\":\"hfytr8j9\",\"accountStatus\":\"pending\"}","timestamp":"2013-03-14T15:20:30.980Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:21:28.644Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:23:46.127Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:25:46.168Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:26:40.302Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:38:17.674Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:39:01.245Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:39:24.682Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:39:31.951Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:42:09.700Z"}
+{"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-14T15:42:09.702Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:47:48.774Z"}
+{"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-14T15:47:48.775Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-14T15:51:58.109Z"}
+{"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-14T15:51:58.110Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-15T04:54:23.219Z"}
+{"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-15T04:54:23.220Z"}

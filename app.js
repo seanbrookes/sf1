@@ -182,8 +182,11 @@ app.configure(function(){
 
 			}
 			else{
-				console.log('Locale AAA');
+				// session is not authenticated - make sure the cookie is empty
 				console.log('req.session is not authenticated');
+				res.cookie('isAuthenticated',false);
+				res.cookie('userName',null);
+				res.cookie('userId',null);
 				/*
 				*
 				* set the default in the session
