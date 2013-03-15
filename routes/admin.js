@@ -20,7 +20,6 @@ var PendingUser = require('../models/pendingUser-model');
 var winston = require('winston');
 var events = require('events');
 var EE = require('events').EventEmitter;
-var $ = require('jquery');
 
 var logger = new (winston.Logger)({
 	transports: [
