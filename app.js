@@ -208,28 +208,18 @@ app.configure(function(){
 	app.use(app.router);
 });
 
-var dbConString;
 
 app.configure('development', function(){
-	dbConString = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
-
+    app.use(express.errorHandler());
 });
-app.configure('production', function(){
-	dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
-	//dbConString = 'mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892/';
-	app.use(express.errorHandler());
-});
-dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
-console.log('dbConnString: ' + dbConString);
-// mongodb://heroku_app11348892:9dn7rqdmsda7qvto9g8v48ksg@ds049467.mongolab.com:49467/heroku_app11348892
-
-var mongoOptions = { db: { safe: true }};
 
 app.get('/logout',user.logout);
 app.get('/isauth',user.isUserAuth);
 app.post('/auth',user.postAuthenticate);
 app.post('/user',user.createUser);
 app.get('/pendingaccounts',admin.getPendingAccountList);
+
+
 
 http.createServer(app).listen(app.get('port'), function(){
 	console.log('|--------------------------------');
@@ -252,7 +242,19 @@ http.createServer(app).listen(app.get('port'), function(){
 	//console.log('|	Initialize Db connection');
 	console.log('|');
 
+    var dbConString;
 
+    app.configure('development', function(){
+        dbConString = 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+
+    });
+    app.configure('production', function(){
+        dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+
+    });
+    dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
+
+    var mongoOptions = { db: { safe: true }};
 	var db = mongoose.connect(dbConString, mongoOptions ,function(err){
 		if(err){
 			console.log('|');
