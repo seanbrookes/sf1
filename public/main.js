@@ -80,10 +80,11 @@ require.config({
             exports : 'Marionette'
         },
         underscore: {
-            'exports': '_'
+            exports: '_'
         },
         i18n: {
-            'exports': 'i18n'
+            deps: ['jquery'],
+            exports: 'i18n'
         },
         bootstrap: {
             deps: ['jquery'],
