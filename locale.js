@@ -10,9 +10,9 @@ var EE = require('events').EventEmitter;
 var EventBus = new EE();
 exports.locale = function(req, res, next) {
     console.log('--------------   Start locale processing ---------');
-    EventBus.on('createUser',function(obj){
-        console.log('Create User Event handler called - app.js - locale test request intercept');
-    });
+//    EventBus.on('createUser',function(obj){
+//        console.log('Create User Event handler called - app.js - locale test request intercept');
+//    });
     /*
 
      make sure the locale is set
