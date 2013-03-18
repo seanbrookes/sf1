@@ -8,7 +8,7 @@
  *
  */
 define(
-    ['jquery'],
+    ['jquery', 'cookie'],
     function($){
         var sf1 = {};
         // usage: POF.log('inside coolFunc',this,arguments);

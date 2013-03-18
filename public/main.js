@@ -11,42 +11,8 @@
  * Baseline - make sure object is supported
  *
  *
- *
- * Twitter and Google+ to instantly connect to what's most important to me, as well as follow my friends, experts, and favorite celebs.
- LinkedIn to manage my professional identity and engage with my professional network.
- Vizify to provide a quick way for new followers to visualize my Bio.
- YouTube to categorize, store and share my professional videos.
- Instagram to share snapshots from my global business ventures...
- Newsle to track articles about my friends, colleagues or anyone else I care about.
- Klout to manage my social media reach
  */
-//requirejs.config({
-//	baseUrl: 'scripts',
-//
-//	paths: {
-//	},
-//
-//	shim: {
-//		'lib/underscore-min': {
-//			exports: '_'
-//		},
-//		'lib/backbone-min': {
-//			deps: ['lib/underscore-min']
-//			, exports: 'Backbone'
-//		},
-//		'app': {
-//			deps: ['lib/underscore-min', 'lib/backbone-min']
-//		}
-//	}
-//});
-//
-//require([
-//	'app'
-//],
-//
-//	function(App) {
-//		window.bTask = new App();
-//	});
+
 require.config({
     enforceDefine: true,
     paths: {
@@ -95,12 +61,10 @@ require.config({
             exports: 'sf1'
         },
         prettydate: {
-            deps: ['jquery'],
-            exports: 'prettydate'
+            deps: ['jquery']
         },
         cookie: {
-            deps: ['jquery'],
-            exports: 'cookie'
+            deps: ['jquery']
         }
     }
 });
