@@ -94,7 +94,7 @@ http.createServer(app).listen(app.get('port'), function(){
 
      */
     var dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'http://' + config.db.host + ':' + config.db.port +'/' + config.db.db;
-logger.info('DBCONSTRING[' + dbConString + ']');
+
 	var db = mongoose.connect(dbConString, config.db.options ,function(err){
 		if(err){
 			console.log('|');
