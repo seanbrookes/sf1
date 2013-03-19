@@ -1,53 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4cf87770-f4a7-456a-a049-9bc7007f72e5" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/glyphicons-halflings-white.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/img/glyphicons-halflings.png" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/lib/backbone-amd.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/css/bootstrap-responsive.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/css/bootstrap-responsive.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/css/bootstrap.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/bootstrap/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/modules/ia/config.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/lib/i18next-1.6.0.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/locales/en/translation.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/scripts/lib/underscore-amd.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/admin/admin-i18n.js" afterPath="$PROJECT_DIR$/public/modules/admin/admin-i18n.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/admin/admin-module.js" afterPath="$PROJECT_DIR$/public/modules/admin/admin-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/admin.js" afterPath="$PROJECT_DIR$/routes/admin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app.js" afterPath="$PROJECT_DIR$/app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/lib/backbone.js" afterPath="$PROJECT_DIR$/public/scripts/lib/backbone.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/client-app.js" afterPath="$PROJECT_DIR$/public/scripts/client-app.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/ia/ia-module.js" afterPath="$PROJECT_DIR$/public/modules/ia/ia-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/ia/ia-template.html" afterPath="$PROJECT_DIR$/public/modules/ia/ia-template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/index/index-module.js" afterPath="$PROJECT_DIR$/public/modules/index/index-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/index/index-template.html" afterPath="$PROJECT_DIR$/public/modules/index/index-template.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/index.html" afterPath="$PROJECT_DIR$/public/index.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/main.js" afterPath="$PROJECT_DIR$/public/main.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pendinguser.log" afterPath="$PROJECT_DIR$/pendinguser.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/router.js" afterPath="$PROJECT_DIR$/public/scripts/router.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/modules/security/security-module.js" afterPath="$PROJECT_DIR$/public/modules/security/security-module.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/sf1.0.1.js" afterPath="$PROJECT_DIR$/public/scripts/sf1.0.1.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/css/style.css" afterPath="$PROJECT_DIR$/public/css/style.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/scripts/lib/underscore.js" afterPath="$PROJECT_DIR$/public/scripts/lib/underscore.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/models/user-model.js" afterPath="$PROJECT_DIR$/models/user-model.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/routes/user.js" afterPath="$PROJECT_DIR$/routes/user.js" />
+    <list default="true" id="4cf87770-f4a7-456a-a049-9bc7007f72e5" name="Default" comment="config files">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" afterPath="$PROJECT_DIR$/.idea/jsLinters/jslint.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/user.log" afterPath="$PROJECT_DIR$/user.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="sf1.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363321934073" ignored="false" />
+    <file path="/Dummy.txt" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363671869723" ignored="false" />
     <file path="/router.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1362861376161" ignored="false" />
     <file path="/translation.json" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1362848011859" ignored="false" />
     <file path="/ia-template.html" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363276954564" ignored="false" />
     <file path="/config.json" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1362846152976" ignored="false" />
-    <file path="/main.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363276680098" ignored="false" />
-    <file path="/client-app.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363276589336" ignored="false" />
+    <file path="/main.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363619876449" ignored="false" />
+    <file path="/client-app.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363620030755" ignored="false" />
     <file path="/ia-module.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363191751550" ignored="false" />
     <file path="/index.html" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363130836943" ignored="false" />
     <file path="/admin-i18n.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363159226969" ignored="false" />
@@ -56,8 +23,13 @@
     <file path="/index-module.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363196121680" ignored="false" />
     <file path="/admin-module.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363196289380" ignored="false" />
     <file path="/security-module.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363197414002" ignored="false" />
-    <file path="$PROJECT_DIR$/../tuduqu/content.log" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363276152076" ignored="false" />
+    <file path="$PROJECT_DIR$/../tuduqu/content.log" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363325965814" ignored="false" />
     <file path="/user.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363275677709" ignored="false" />
+    <file path="$PROJECT_DIR$/../tuduqu/app.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363325922225" ignored="false" />
+    <file path="/config.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363531951828" ignored="false" />
+    <file path="/app.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363531924412" ignored="false" />
+    <file path="/routes.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363448952456" ignored="false" />
+    <file path="/locale.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363450932878" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,10 +49,19 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="app.js" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="app.js" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="48" column="22" selection-start="1201" selection-end="1201" vertical-scroll-proportion="0.7284768">
+            <state line="14" column="33" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="README" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/README">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.43031785">
               <folding />
             </state>
           </provider>
@@ -104,30 +85,30 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/public/modules/ia/config.json" />
-        <option value="$PROJECT_DIR$/public/scripts/router.js" />
-        <option value="$PROJECT_DIR$/public/scripts/lib/backbone.js" />
-        <option value="$PROJECT_DIR$/public/scripts/lib/underscore.js" />
-        <option value="$PROJECT_DIR$/public/modules/admin/admin-i18n.js" />
-        <option value="$PROJECT_DIR$/public/index.html" />
-        <option value="$PROJECT_DIR$/public/scripts/lib/i18next.amd-1.6.0.js" />
-        <option value="$PROJECT_DIR$/public/scripts/sf1.0.1.js" />
-        <option value="$PROJECT_DIR$/public/modules/index/index-module.js" />
         <option value="$PROJECT_DIR$/public/modules/admin/admin-module.js" />
         <option value="$PROJECT_DIR$/public/modules/security/security-module.js" />
-        <option value="$PROJECT_DIR$/routes/user.js" />
         <option value="$PROJECT_DIR$/public/modules/ia/ia-module.js" />
-        <option value="$PROJECT_DIR$/public/scripts/client-app.js" />
-        <option value="$PROJECT_DIR$/public/main.js" />
         <option value="$PROJECT_DIR$/public/modules/ia/ia-template.html" />
+        <option value="$PROJECT_DIR$/routes/admin.js" />
+        <option value="$PROJECT_DIR$/routes.js" />
+        <option value="$PROJECT_DIR$/config.js" />
+        <option value="$PROJECT_DIR$/locale.js" />
+        <option value="$PROJECT_DIR$/routes/user.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/public/main.js" />
+        <option value="$PROJECT_DIR$/public/scripts/client-app.js" />
+        <option value="$PROJECT_DIR$/public/scripts/sf1.0.1.js" />
+        <option value="$PROJECT_DIR$/public/scripts/lib/plugins/jquery.cookie.js" />
+        <option value="$PROJECT_DIR$/app.js" />
+        <option value="$PROJECT_DIR$/README" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="64" />
-    <option name="y" value="-4" />
-    <option name="width" value="1337" />
-    <option name="height" value="1055" />
+    <option name="x" value="65" />
+    <option name="y" value="24" />
+    <option name="width" value="1335" />
+    <option name="height" value="1026" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -217,6 +198,24 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="sf1" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="public" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="scripts" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
         </subPane>
       </pane>
       <pane id="Scope" />
@@ -225,15 +224,15 @@
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="true" />
-    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
     <property name="WebServerToolWindowPanel.toolwindow.show.permissions" value="false" />
-    <property name="options.lastSelected" value="preferences.pluginManager" />
+    <property name="WebServerToolWindowPanel.toolwindow.show.date" value="false" />
+    <property name="options.lastSelected" value="reference.settingsdialog.IDE.editor.colors.JavaScript" />
     <property name="WebServerToolWindowPanel.toolwindow.show.size" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../tuduqu" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/routes" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.symlinks" value="true" />
-    <property name="options.splitter.details.proportions" value="0.2" />
-    <property name="options.searchVisible" value="true" />
     <property name="WebServerToolWindowPanel.toolwindow.highlight.mappings" value="true" />
+    <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
   </component>
   <component name="PublishConfig" serverName="sf1" serverId="71f549df-a475-4d35-9c42-5c2b08d94034">
     <servers>
@@ -249,6 +248,9 @@
       <recent name="$PROJECT_DIR$/public/scripts/lib/plugins" />
       <recent name="$PROJECT_DIR$/public/scripts" />
       <recent name="$PROJECT_DIR$" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/routes" />
     </key>
   </component>
   <component name="RunManager">
@@ -344,28 +346,72 @@
       <created>1360915596337</created>
       <updated>1360915596337</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="marionette implementation">
+      <created>1363324065891</created>
+      <updated>1363324065891</updated>
+    </task>
+    <task id="LOCAL-00013" summary="marionette implementation">
+      <created>1363324194658</created>
+      <updated>1363324194658</updated>
+    </task>
+    <task id="LOCAL-00014" summary="adjust to match working init from tuduqu">
+      <created>1363326496881</created>
+      <updated>1363326496881</updated>
+    </task>
+    <task id="LOCAL-00015" summary="remove require jquery statement">
+      <created>1363326976243</created>
+      <updated>1363326976243</updated>
+    </task>
+    <task id="LOCAL-00016" summary="app config refactor">
+      <created>1363534353226</created>
+      <updated>1363534353226</updated>
+    </task>
+    <task id="LOCAL-00017" summary="try to fix event memory leak">
+      <created>1363536496566</created>
+      <updated>1363536496566</updated>
+    </task>
+    <task id="LOCAL-00018" summary="revert node version to 8.x">
+      <created>1363536586968</created>
+      <updated>1363536586968</updated>
+    </task>
+    <task id="LOCAL-00019" summary="fix i18next jquery dependency">
+      <created>1363536971832</created>
+      <updated>1363536971832</updated>
+    </task>
+    <task id="LOCAL-00020" summary="fix jquery cookie plugin amd issues">
+      <created>1363620685296</created>
+      <updated>1363620685296</updated>
+    </task>
+    <task id="LOCAL-00021" summary="add file meta data">
+      <created>1363671023159</created>
+      <updated>1363671023159</updated>
+    </task>
+    <task id="LOCAL-00022" summary="reconcile readme file">
+      <created>1363671939959</created>
+      <updated>1363671939959</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="64" y="-4" width="1337" height="1055" extended-state="6" />
+    <frame x="65" y="24" width="1335" height="1026" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.4443207" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32998884" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32994527" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19781078" sideWeight="0.55567926" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.19233777" sideWeight="0.49275362" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.5075594" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.5072464" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32962137" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -413,7 +459,7 @@
     <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
     <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
-    <option name="LAST_COMMIT_MESSAGE" value="updates to configure main nav and testing for authentication" />
+    <option name="LAST_COMMIT_MESSAGE" value="reconcile readme file" />
     <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
     <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
@@ -438,105 +484,116 @@
     <MESSAGE value="adding prettydate plugin" />
     <MESSAGE value="update ia for navigation selection" />
     <MESSAGE value="updates to configure main nav and testing for authentication" />
+    <MESSAGE value="marionette implementation" />
+    <MESSAGE value="adjust to match working init from tuduqu" />
+    <MESSAGE value="remove require jquery statement" />
+    <MESSAGE value="app config refactor" />
+    <MESSAGE value="try to fix event memory leak" />
+    <MESSAGE value="revert node version to 8.x" />
+    <MESSAGE value="fix i18next jquery dependency" />
+    <MESSAGE value="fix jquery cookie plugin amd issues" />
+    <MESSAGE value="add file meta data" />
+    <MESSAGE value="reconcile readme file" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/public/modules/admin/admin-i18n.js">
+    <entry file="file://$PROJECT_DIR$/routes/admin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="8" column="21" selection-start="102" selection-end="102" vertical-scroll-proportion="0.2037037" />
+        <state line="22" column="0" selection-start="404" selection-end="404" vertical-scroll-proportion="0.41435185" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/lib/require.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/bcrypt/node_modules/bindings/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="13" column="70" selection-start="683" selection-end="683" vertical-scroll-proportion="-17.573172" />
+        <state line="19" column="18" selection-start="389" selection-end="389" vertical-scroll-proportion="-14.928572" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/index.html">
+    <entry file="file://$PROJECT_DIR$/node_modules/bcrypt/node_modules/bindings/bindings.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="17" selection-start="777" selection-end="777" vertical-scroll-proportion="0.21749696" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="-1.6023121" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/lib/i18next.amd-1.6.0.js">
+    <entry file="file://$PROJECT_DIR$/routes/auth.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="56" column="0" selection-start="1691" selection-end="1813" vertical-scroll-proportion="-16.32258" />
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/sf1.0.1.js">
+    <entry file="file://$PROJECT_DIR$/routes/routes-config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="67" column="18" selection-start="2044" selection-end="2044" vertical-scroll-proportion="0.0">
+        <state line="19" column="32" selection-start="457" selection-end="457" vertical-scroll-proportion="0.0">
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/index/index-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="39" selection-start="1089" selection-end="1089" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/admin/admin-module.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="26" selection-start="238" selection-end="238" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/security/security-template.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="11.785714" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/routes/user.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="46" selection-start="4241" selection-end="4241" vertical-scroll-proportion="0.0">
+        <state line="23" column="0" selection-start="674" selection-end="775" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/ia/ia-module.js">
+    <entry file="file://$PROJECT_DIR$/app-config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="136" column="36" selection-start="3173" selection-end="3173" vertical-scroll-proportion="0.0">
+        <state line="17" column="17" selection-start="447" selection-end="447" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/security/security-module.js">
+    <entry file="file://$PROJECT_DIR$/package.json">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="18" selection-start="126" selection-end="129" vertical-scroll-proportion="0.0">
+        <state line="9" column="27" selection-start="160" selection-end="160" vertical-scroll-proportion="0.23655914">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/scripts/client-app.js">
+    <entry file="file://$PROJECT_DIR$/locale.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="44" selection-start="196" selection-end="196" vertical-scroll-proportion="0.025433525">
+        <state line="14" column="9" selection-start="526" selection-end="526" vertical-scroll-proportion="0.0">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/main.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="107" column="36" selection-start="2959" selection-end="2959" vertical-scroll-proportion="0.0">
+        <state line="71" column="48" selection-start="1935" selection-end="1935" vertical-scroll-proportion="0.03352601">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/ia/config.json">
+    <entry file="file://$PROJECT_DIR$/public/scripts/client-app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="23" selection-start="403" selection-end="413" vertical-scroll-proportion="0.026284348">
+        <state line="9" column="25" selection-start="125" selection-end="125" vertical-scroll-proportion="0.025433525">
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/modules/ia/ia-template.html">
+    <entry file="file://$PROJECT_DIR$/public/scripts/sf1.0.1.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="11" column="35" selection-start="501" selection-end="501" vertical-scroll-proportion="0.2936893">
+        <state line="10" column="23" selection-start="158" selection-end="158" vertical-scroll-proportion="0.0">
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/scripts/lib/plugins/jquery.cookie.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="25" column="5" selection-start="562" selection-end="562" vertical-scroll-proportion="0.49061033">
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="48" column="22" selection-start="1201" selection-end="1201" vertical-scroll-proportion="0.7284768">
+        <state line="14" column="33" selection-start="363" selection-end="363" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/README">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="0" selection-start="96" selection-end="96" vertical-scroll-proportion="0.43031785">
           <folding />
         </state>
       </provider>
