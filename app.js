@@ -1,7 +1,8 @@
 /**
-
+ * Simple Framework One
  *
- * TODO - parameterize index.html properties
+ *
+ * Basic bootstrap application based node/mongo/backbone
  *
  */
 var express = require('express');
