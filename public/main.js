@@ -20,20 +20,35 @@ require.config({
         'cookie'        : 'scripts/lib/plugins/jquery.cookie',
         'prettydate'    : 'scripts/lib/plugins/jquery.prettydate.js',
         'underscore'    : 'scripts/lib/underscore',
-        //'text'          : 'scripts/lib/text',
         'json2'         : 'scripts/lib/json2',
         'i18n'          : 'scripts/lib/i18next.amd-1.6.0',
         'backbone'      : 'scripts/lib/backbone',
         'marionette'    : 'scripts/lib/backbone.marionette',
         'bootstrap'     : 'bootstrap/js/bootstrap',
-        'client'        : 'scripts/client-app',
-        'sf1'           : 'scripts/sf1.0.1',
-        'security'      : 'modules/security/security-module',
-        'admin'         : 'modules/admin/admin-module',
+        'client'        : 'client.app',
+        'app'           : 'modules/app/app.controller',
+        'sf1'           : 'scripts/sf1.0.2',
+        'security'      : 'modules/security/security.controller',
+        'admin'         : 'modules/admin/admin.controller',
         'index'         : 'modules/index/index-module',
+        'home'          : 'modules/home/home.controller',
         'io'            : 'modules/io/io-module',
         'ui'            : 'modules/ui/ui-module',
-        'ia'            : 'modules/ia/ia-module'
+        'ia'            : 'modules/ia/ia.controller',
+        'router'        : 'router',
+        'ca'            : 'client.app',
+        'eventbus'      : 'eventbus',
+        'raphael'       : 'scripts/lib/raphael-min',
+        'd3'            : 'scripts/lib/d3.v3.min',
+        'morris'        : 'scripts/lib/morris.min',
+        'user'          : 'modules/user/user.controller'
+//        'ia'            : 'modules/ia/ia.controller',
+//        'app'           : 'modules/app/app.controller',
+//        'home'          : 'modules/home/home.controller',
+
+
+
+
     },
     shim: {
 
@@ -65,40 +80,40 @@ require.config({
         },
         cookie: {
             deps: ['jquery']
+        },
+        raphael:{
+            deps: ['jquery'],
+            exports: 'Raphael'
+        },
+        morris: {
+            deps: ['jquery','raphael'],
+            exports: 'Morris'
+        },
+        d3: {
+            exports: 'd3'
         }
     }
 });
 define(
-    ['jquery','i18n', 'client', 'security', 'ia'],
-    function($, i18n, App, Security, IA) {
+    ['jquery', 'sf1', 'i18n', 'client'],
+        function($, sf1, i18n, App) {
 
-        App.sf1.log('typeof $: ' + typeof $);
-        App.sf1.log('typeof _: ' + typeof _);
-        App.sf1.log('typeof backbone: ' + typeof Backbone);
+            i18n.init({
+                lng: 'en'
+            },
+            function() {  // init rosters (app context models)
 
-
-        i18n.init({
-            lng: 'en'
-        }, function(t) {
-            var router = new App.AppRouter(t);
-            Backbone.history.start();
-
-
-            SF1 = new Backbone.Marionette.Application();
-            SF1.addRegions({
-                mainContentRegion: '.main-content-wrapper',
-                pageHeaderRegion:'.page-header',
-                pageFooterRegion:'.page-footer',
-                mainNavRegion:'#MainNavigation',
-                globalNavRegion:'#GlbalNavigation'
-
-            });
-            IA.init();
-
-
-
-
-        });
+                /*
+                 *
+                 * conceptually there should be a configuration to feed the initialization sequence
+                 * to know when all of the initialization steps are complete
+                 * that may be what the
+                 *
+                 *
+                 * */
+                sf1.EventBus.trigger('app.contextInitSuccess');
+            }
+        );
 
     }
 );

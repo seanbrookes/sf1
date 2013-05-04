@@ -1,42 +1,30 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<head>
+    <head>
 
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="viewport" content="initial-scale=1.0, width=device-width">
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <meta name="viewport" content="initial-scale=1.0, width=device-width">
 
-    <title>Simple Framework One</title>
+        <title>Simple Framework One</title>
 
-    <!-- Bootstrap -->
-    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet" media="screen">
+        <link rel="stylesheet" type="text/css" href="css/kube.css">
+        <link rel="stylesheet" type="text/css" href="css/style.css">
 
-    <!--
-        TODO - resolve to one stylesheet for the base app
-    -->
-    <link rel="stylesheet" type="text/css" href="css/style.css">
-    <link rel="stylesheet" type="text/css" media="all" href="css/responsive.css">
+    </head>
 
-</head>
+    <body class="sf1" data-sf1-appname="sf1">
 
-<body >
+        <!-- Body Markup -->
+        <div class="viewport ui-container">
 
-<!-- Body Markup -->
-<div class="viewport ui-container">
+        </div>
 
-    <header class="page-header"></header>
+        <!-- DOM location for dynamically loaded template markup -->
+        <div id="TemplateContainer"></div>
 
-    <div class="main-content-wrapper ui-container">
+        <!-- kick it -->
+        <script data-main="main" src="scripts/lib/require.js"></script>
+        <script src="http://rawgithub.com/ajaxorg/ace-builds/master/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
 
-        <!-- application content goes here -->
-
-    </div>
-
-</div>
-
-<!-- DOM location for dynamically loaded template markup -->
-<div id="TemplateContainer"></div>
-
-<script data-main="main" src="scripts/lib/require.js"></script>
-
-</body>
+    </body>
 </html>

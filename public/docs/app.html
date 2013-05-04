@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>app.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app-config.html">
+                app-config.js
+              </a>
+            
+              
+              <a class="source" href="app.html">
+                app.js
+              </a>
+            
+              
+              <a class="source" href="locale.html">
+                locale.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>app.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="comment">/**
+ * Simple Framework One
+ *
+ *
+ * Basic bootstrap application based node/mongo/backbone
+ *
+ */</span>
+<span class="keyword">var</span> express = require(<span class="string">'express'</span>);
+<span class="keyword">var</span> http = require(<span class="string">'http'</span>);
+<span class="keyword">var</span> path = require(<span class="string">'path'</span>);
+<span class="keyword">var</span> mongoose = require(<span class="string">'mongoose'</span>);
+<span class="keyword">var</span> winston = require(<span class="string">'winston'</span>);
+<span class="keyword">var</span> config = require(<span class="string">'./app-config'</span>);
+<span class="keyword">var</span> locale = require(<span class="string">'./locale'</span>);
+<span class="keyword">var</span> logger = <span class="keyword">new</span> (winston.Logger)({
+	transports: [
+		<span class="keyword">new</span> (winston.transports.Console)(),
+		<span class="keyword">new</span> (winston.transports.File)({ filename: <span class="string">'app.log'</span> })
+	]
+});
+
+<span class="keyword">var</span> app = express();
+
+
+
+app.set(<span class="string">'port'</span>, process.env.PORT || config.localPort);
+app.use(express.favicon());
+app.use(express.logger(<span class="string">'dev'</span>));
+app.use(express.bodyParser());
+app.use(express.static(path.join(__dirname, <span class="string">'public'</span>)));
+app.use(express.errorHandler({ dumpExceptions: <span class="literal">true</span>, showStack: <span class="literal">true</span> }));
+app.use(express.cookieParser(config.cookieSecretString));
+app.use(express.session({
+    secret: config.salt,
+    cookie: {
+        path     : <span class="string">'/'</span>,
+        httpOnly : <span class="literal">true</span>,
+        maxAge   : <span class="literal">null</span>    <span class="comment">//one year(ish)</span>
+    }
+}));
+
+app.use(express.methodOverride());	<span class="comment">// important that this comes after session management</span>
+<span class="comment">/*
+*
+* LOCALE
+*
+*
+* */</span>
+app.use(locale.locale);
+app.use(app.router);
+
+
+
+app.configure(<span class="string">'development'</span>, <span class="keyword">function</span>(){
+    app.use(express.errorHandler());
+});
+
+
+<span class="comment">/*
+*
+* ROUTES
+*
+* */</span>
+require(<span class="string">'./routes/routes-config'</span>)(app);
+
+<span class="comment">/*
+*
+*
+* CREATE THE APP
+*
+*
+*
+* */</span>
+http.createServer(app).listen(app.get(<span class="string">'port'</span>), <span class="keyword">function</span>(){
+	console.log(<span class="string">'|--------------------------------'</span>);
+	console.log(<span class="string">'|'</span>);
+	console.log(<span class="string">'|'</span>);
+	console.log(<span class="string">'|'</span>);
+	console.log(<span class="string">'|'</span>);
+	console.log(<span class="string">'|'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-2">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-2">&#182;</a>
+              </div>
+              <p>TODO - parameterize the name of the application
+TODO - set configuration to enable and turn off this messaging</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	console.log(<span class="string">"|	"</span> + config.app.friendlyName + <span class="string">" app server listening on port "</span> + app.get(<span class="string">'port'</span>));
+	console.log(<span class="string">'|'</span>);
+	console.log(<span class="string">'|'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-3">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-3">&#182;</a>
+              </div>
+              <p>console.log(&#39;|    Initialize Db connection&#39;);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>	console.log(<span class="string">'|'</span>);
+
+    <span class="comment">/*
+     DB Connection
+
+     */</span>
+    <span class="keyword">var</span> dbConString = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || <span class="string">'http://'</span> + config.db.host + <span class="string">':'</span> + config.db.port +<span class="string">'/'</span> + config.db.db;
+
+	<span class="keyword">var</span> db = mongoose.connect(dbConString, config.db.options ,<span class="keyword">function</span>(err){
+		<span class="keyword">if</span>(err){
+			console.log(<span class="string">'|'</span>);
+			console.log(<span class="string">'|'</span>);
+			console.log(<span class="string">'--------------------------------'</span>);</pre></div></div>
+            
+        </li>
+        
+        
+        <li id="section-4">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-4">&#182;</a>
+              </div>
+              <p>console.log(&#39;|    &#39; + dbConString + &#39; [db] connection error : &#39; + err);</p>
+
+            </div>
+            
+            <div class="content"><div class='highlight'><pre>			console.log(<span class="string">'|	 [db] connection error : '</span> + err);
+			console.log(<span class="string">'--------------------------------'</span>);
+			console.log(<span class="string">'|'</span>);
+		}
+		<span class="keyword">else</span>{
+			console.log(<span class="string">'|'</span>);
+			console.log(<span class="string">'|	Connected to db	'</span>);
+			console.log(<span class="string">'|'</span>);
+			console.log(<span class="string">'|'</span>);
+		}
+		console.log(<span class="string">'|=========================================='</span>);
+		console.log(<span class="string">'|=========================================='</span>);
+		console.log(<span class="string">'|'</span>);
+		console.log(<span class="string">'|'</span>);
+
+	});
+});</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

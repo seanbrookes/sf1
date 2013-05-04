@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+  <title>app-config.js</title>
+  <meta http-equiv="content-type" content="text/html; charset=UTF-8">
+  <meta name="viewport" content="width=device-width, target-densitydpi=160dpi, initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
+  <link rel="stylesheet" media="all" href="docco.css" />
+</head>
+<body>
+  <div id="container">
+    <div id="background"></div>
+    
+      <ul id="jump_to">
+        <li>
+          <a class="large" href="javascript:void(0);">Jump To &hellip;</a>
+          <a class="small" href="javascript:void(0);">+</a>
+          <div id="jump_wrapper">
+          <div id="jump_page">
+            
+              
+              <a class="source" href="app-config.html">
+                app-config.js
+              </a>
+            
+              
+              <a class="source" href="app.html">
+                app.js
+              </a>
+            
+              
+              <a class="source" href="locale.html">
+                locale.js
+              </a>
+            
+          </div>
+        </li>
+      </ul>
+    
+    <ul class="sections">
+        
+          <li id="title">
+              <div class="annotation">
+                  <h1>app-config.js</h1>
+              </div>
+          </li>
+        
+        
+        
+        <li id="section-1">
+            <div class="annotation">
+              
+              <div class="pilwrap ">
+                <a class="pilcrow" href="#section-1">&#182;</a>
+              </div>
+              
+            </div>
+            
+            <div class="content"><div class='highlight'><pre><span class="comment">/**
+ * Created with JetBrains WebStorm.
+ * User: sean
+ * Date: 14/03/13
+ * Time: 11:14 PM
+ * To change this template use File | Settings | File Templates.
+ */</span>
+<span class="keyword">var</span> config = {
+    app: {
+        friendlyName: <span class="string">'Simple Framework One'</span>,
+            name:<span class="string">'sf1'</span>
+    },
+    db: {
+        db: <span class="string">'sf1'</span>,
+        host: <span class="string">'localhost'</span>,
+        port: <span class="number">27017</span>,  <span class="comment">// optional, default: 27017</span>
+        collection: <span class="string">'sessions'</span>, <span class="comment">// optional, default: sessions</span>
+        options:{
+            db: {
+                safe: <span class="literal">true</span>
+            }
+        }
+    },
+    salt: <span class="string">'076ee61d63aa10a125ea872411e433bc'</span>,
+    cookieSecretString: <span class="string">'a secret string'</span>,
+    localPort: <span class="number">3002</span>
+};
+module.exports = config;</pre></div></div>
+            
+        </li>
+        
+    </ul>
+  </div>
+</body>
+</html>

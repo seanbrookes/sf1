@@ -11,6 +11,7 @@ define(
     ['jquery', 'cookie'],
     function($){
         var sf1 = {};
+        sf1.tplKey = 'S';
         // usage: POF.log('inside coolFunc',this,arguments);
         // inspired by: http://paulirish.com/2009/log-a-lightweight-wrapper-for-consolelog/
         sf1.log =  function(){
