@@ -61,6 +61,7 @@
 					"value":"ia.login"
 				}
 			],
+            "i18nKey":"ia.login",
 			"href":"#login",
 			"title":"iaI18n.k18Login",
 			"name":"iaI18n.k18Login"
@@ -85,6 +86,7 @@
 					"value":"ia.signup"
 				}
 			],
+            "i18nKey":"ia.signup",
 			"title":"iaI18n.k18SignUp",
 			"name":"iaI18n.k18SignUp"
 		}

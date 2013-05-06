@@ -16,21 +16,26 @@ define(['sf1','marionette'],
             }
         );
         var mainNavView = Backbone.Marionette.ItemView.extend({
-            template:'#IAMainNavTemplate'
-        })
+            template:'#IAMainNavTemplate',
+            tagName:'nav',
+            className:'nav-h'
+        });
         var navItemView = Backbone.Marionette.ItemView.extend({
-           template:'#NavItemTemplate'
+           template:'#NavItemTemplate',
+            tagName:'li'
         });
 
         /*
          * GlobalNavView
          *
          * */
-        var globalNavView = Backbone.Marionette.CollectionView.extend({
+        var globalNavView = Backbone.Marionette.CompositeView.extend({
             template:'#IAGlobalNavTemplate',
-            tagName: 'ul',
-            className: 'nav-global-list',
-            itemView:navItemView
+            itemViewContainer: 'ul',
+            itemView:navItemView,
+            onShow:function(event){
+                $('.global-nav-container').i18n();
+            }
         });
 
 

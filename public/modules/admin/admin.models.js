@@ -9,7 +9,13 @@
 define(['sf1','backbone'],
     function(sf1, Backbone){
 
-        return {};
+        var pendingAccountItemModel = Backbone.Model.extend({});
+        var pendingAccountsCollection = Backbone.Collection.extend({
+           itemView: pendingAccountItemModel
+        });
+        return {
+            PendingAccounts:pendingAccountsCollection
+        };
 
     }
 );

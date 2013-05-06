@@ -26,6 +26,7 @@ define(['sf1','marionette','app'],
                 "signup"    : "signup",
                 "admin"     : "admin",
                 "security"  : "security",
+                "composer"  : "composer",
                 "user"      : "user"
             },
             controller: app.getRouterConfig()

@@ -5,15 +5,26 @@
         <div class="module-content-container ui-container">
             <h1>Admin View</h1>
             <div>
-                <div>
-                    <button class="btn-list-pending">list pending accounts</button>
-                </div>
-                <div class="pending-account-list-container">
-                    <ul class="pending-account-list">
-
-                    </ul>
-                </div>
+                <button class="btn-list-pending">list pending accounts</button>
             </div>
+            <div data-region="pendingAccounts">
+
+
+            </div>
+        </div>
+    </script>
+
+    <script id="AdminPendingAccountItemTemplate" type="text/template">
+        <a href="#"><%= S.userName %></a>  --  [ <a href="#" class="cmd-toggle-acctStatus" data-id="<%= S._id %>" data-status="<%= S.accountStatus %>"><%= S.accountStatus %></a> ]
+
+    </script>
+
+    <script id="AdminPendingAccountsTemplate" type="text/template">
+
+        <div class="pending-account-list-container">
+            <ul class="pending-account-list">
+
+            </ul>
         </div>
     </script>
 

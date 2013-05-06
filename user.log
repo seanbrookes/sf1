@@ -153,3 +153,6 @@
 {"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-17T16:07:27.479Z"}
 {"level":"info","message":"login attempt","timestamp":"2013-03-17T16:15:20.300Z"}
 {"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-17T16:15:20.302Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-03-19T07:26:02.049Z"}
+{"level":"info","message":"{\"email\":\"seanbrookes@beachair.ca\",\"password\":\"hawkeye4\"}","timestamp":"2013-03-19T07:26:02.050Z"}
+{"level":"info","message":"createUser request","timestamp":"2013-05-05T23:19:19.285Z"}

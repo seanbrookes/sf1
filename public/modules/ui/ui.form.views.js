@@ -23,7 +23,7 @@ define(['sf1','marionette'],
                 return{
                     'method':'POST',
                     'class':'ui-form'
-                }
+                };
             }
 
         });

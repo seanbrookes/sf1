@@ -8,13 +8,13 @@
     </script>
 
     <script id="NavItemTemplate" type="text/template">
-        <a href="<%= S.href %>"><%= S.name%></a>
+        <a href="<%= S.href %>" data-i18n="<%= S.i18nKey %>"><%= S.name%></a>
     </script>
 
     <script id="IAMainNavTemplate" type="text/template" >
 
 
-        <nav class="main-nav">
+
             <ul>
                 <li>
                     <a href="#home"><span>Home</span></a>
@@ -26,7 +26,7 @@
                     <a href="#admin"><span>Admin</span></a>
                 </li>
             </ul>
-        </nav>
+
 
     </script>
 
@@ -39,8 +39,8 @@
 
     <!-- Global Navigation Container -->
     <script id="IAGlobalNavTemplate" type="text/template" class="ui-template">
-        <nav id="GlobalNavigation" class="global-nav-container">
-
+        <nav class="global-nav-container nav-h">
+            <ul></ul>
         </nav>
     </script>
 

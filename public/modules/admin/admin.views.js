@@ -30,12 +30,16 @@ define(['sf1','marionette'],
                             var outPutMarkup = '';
                             sf1.log(response);
                             if (response.length){
-                                for (var i = 0;i < response.length;i++){
-                                    var user = response[i];
-                                    outPutMarkup += '<li><a href="#">' + user.userName  + '</a></li>';
-                                    //sf1.log('response[' + i +  '][' + JSON.stringify(response[i]) + ']');
-                                }
-                                $('.pending-account-list').html(outPutMarkup);
+
+                                sf1.EventBus.trigger('admin.pendingAccountsRequestSuccess',response);
+//
+//
+//                                for (var i = 0;i < response.length;i++){
+//                                    var user = response[i];
+//                                    outPutMarkup += '<li><a href="#">' + user.userName  + '</a></li>';
+//                                    //sf1.log('response[' + i +  '][' + JSON.stringify(response[i]) + ']');
+//                                }
+//                                $('.pending-account-list').html(outPutMarkup);
                             }
 
                         },
@@ -46,7 +50,14 @@ define(['sf1','marionette'],
                 }
             }
         );
-
+        var pendingAccountView = Backbone.Marionette.ItemView.extend({
+            template:'#AdminPendingAccountItemTemplate'
+        });
+        var pendingAccountsView = Backbone.Marionette.CompositeView.extend({
+            template:'#AdminPendingAccountsTemplate',
+            itemViewContainer: 'ul',
+            itemView:pendingAccountView
+        });
 
 
         var indexDefaultLayout = Backbone.Marionette.Layout.extend({
@@ -57,7 +68,8 @@ define(['sf1','marionette'],
         });
         return {
             IndexView:indexView,
-            IndexLayout:indexDefaultLayout
+            IndexLayout:indexDefaultLayout,
+            PendingAccounts:pendingAccountsView
 
         };
 

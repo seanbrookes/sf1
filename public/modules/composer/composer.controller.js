@@ -6,51 +6,28 @@
  * Time: 10:57 PM
  *
  */
-define(['sf1','uiform','modules/composer/composer.models','modules/composer/composer.views','text!modules/composer/composer.templates.html'],
+define(['sf1','uiform','modules/composer/composer.models','modules/composer/composer.views','text!modules/composer/composer.templates.html','tabs'],
     function(sf1, Form, Model, View, template){
         var anchorSelector = '#TemplateContainer';
 
-        _.templateSettings.variable = 'G';
-        _.templateSettings.variable = 'S';
+        _.templateSettings.variable = sf1.tplKey;
         var baseMarkup = $(template);
         // attach the module template markup to the DOM
         $(anchorSelector).append(baseMarkup);
 
         var indexView = function(){
             var targetLayoutView = new View.IndexLayout();
+
             targetLayoutView.render();
 
-
-            var targetView = new Form.UIForm();
-            var textField = new Form.UIFormText();
-            var codeButton = new Form.UIButton({
-                model:new Form.UIButtonModel({text:'Code Button'}),
-                attributes:{class:'btn-post-code'}
-//                postCodeFromComposer:function(){
-//                    sf1.log('|| - Post Code Button Clicked Event ');
-//                },
-//                events:{
-//                    'click .btn-post-code':'postCodeFromComposer'
-//                }
-
-            });
-           // targetLayoutView.container.show(targetView);
-
-            var indexContainerRegion = new Backbone.Marionette.Region({
-                el: '.view-index'
-            });
-
             targetLayoutView.on('show',function(layout){
-                indexContainerRegion.show(codeButton);
-                var formRegion = new Backbone.Marionette.Region({
-                    el: '.ui-form'
-                });
-                formRegion.show(textField);
-                var editor = ace.edit("editor");
-                editor.setTheme("ace/theme/monokai");
-                editor.getSession().setMode("ace/mode/javascript");
+
+                this.layoutMenuRegion.show(new View.LayoutChooser());
+                this.formMenuRegion.show(new View.FormChooser());
+                this.viewMenuRegion.show(new View.ViewChooser());
+                //this.codeEditorRegion.show(new View.CodeEditor());
+
             });
-            //targetLayoutView.container.show(targetView);
 
             return targetLayoutView;
         };
@@ -60,3 +37,20 @@ define(['sf1','uiform','modules/composer/composer.models','modules/composer/comp
         };
     }
 );
+
+
+
+//var targetView = new Form.UIForm();
+//var textField = new Form.UIFormText();
+//
+//var codeButton = new Form.UIButton({
+//    model:new Form.UIButtonModel({text:'Code Button'}),
+//    attributes:{class:'btn-post-code'}
+////                postCodeFromComposer:function(){
+////                    sf1.log('|| - Post Code Button Clicked Event ');
+////                },
+////                events:{
+////                    'click .btn-post-code':'postCodeFromComposer'
+////                }
+//
+//});

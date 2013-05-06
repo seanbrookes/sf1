@@ -30,30 +30,7 @@ define(['sf1','modules/admin/admin.models','modules/admin/admin.views','text!mod
             var templateMarkup = template( templateData );
             $('.main-content-wrapper').html(templateMarkup);
 
-            $('.btn-list-pending').click(function(event){
-                sf1.log('list accounts');
-                $.ajax({
-                    type:'get',
-                    url:'/pendingaccounts',
-                    success:function(response){
-                        sf1.log('success get pending accounts');
-                        var outPutMarkup = '';
-                        sf1.log(response);
-                        if (response.length){
-                            for (var i = 0;i < response.length;i++){
-                                var user = response[i];
-                                outPutMarkup += '<li><a href="#">' + user.userName  + '</a></li>';
-                                //sf1.log('response[' + i +  '][' + JSON.stringify(response[i]) + ']');
-                            }
-                            $('.pending-account-list').html(outPutMarkup);
-                        }
 
-                    },
-                    error:function(response){
-                        sf1.log('error get pending accounts: ' + response);
-                    }
-                });
-            });
         }
 
 
@@ -77,7 +54,20 @@ define(['sf1','modules/admin/admin.models','modules/admin/admin.views','text!mod
             });
 
             targetLayoutView.on('show',function(layout){
-                indexContainerRegion.show(targetView)
+                indexContainerRegion.show(targetView);
+                var pendingAccountRegion = new Backbone.Marionette.Region({
+                   el:'div[data-region="pendingAccounts"]'
+                });
+
+                sf1.EventBus.bind('admin.pendingAccountsRequestSuccess',function(response){
+                    pendingAccountRegion.show(new View.PendingAccounts({
+                        collection:new Model.PendingAccounts(response)
+                    }));
+                });
+
+
+
+
             });
             //targetLayoutView.container.show(targetView);
 
@@ -85,7 +75,8 @@ define(['sf1','modules/admin/admin.models','modules/admin/admin.views','text!mod
         };
 
         return{
-            IndexView:indexView
+            IndexView:indexView,
+            PendingAccountsView:View.PendingAccounts
         };
     }
 );
