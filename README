@@ -1,8 +1,28 @@
 
-Base project for Simple Framework One
+Simple Framework One is a simple full stack bootstrap project using:
+- mongodb
+- node
+- mongoose
+- express
+- jQuery
+- backbone
+- marionette
+- require
+- underscore
+- kube CSS
+- less
 
-- a simple core application bootstrap
+- this file is a work in progress
 
-- Sean Brookes
+Basically this is a bootstrap project to get a mongodb/nodejs/backbone web application up and running
+
+It includes elements of the following
+- account creation and authentication
+- CSS pre-processing
+- marionette based modular application architecture
+- Kube CSS enabled
+
+
+- Sean Brookes 2013
 
 
