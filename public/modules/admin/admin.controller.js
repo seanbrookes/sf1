@@ -10,7 +10,7 @@ define(['sf1','modules/admin/admin.models','modules/admin/admin.views','text!mod
     function(sf1, Model, View, template){
         var anchorSelector = '#TemplateContainer';
 
-        _.templateSettings.variable = 'S';
+        _.templateSettings.variable = sf1.tplKey;
         var baseMarkup = $(template);
         // attach the module template markup to the DOM
         $(anchorSelector).append(baseMarkup);

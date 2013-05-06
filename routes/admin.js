@@ -24,7 +24,7 @@ var EE = require('events').EventEmitter;
 var logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)(),
-		new (winston.transports.File)({ filename: 'pendinguser.log' })
+		new (winston.transports.File)({ filename: './logs/pendinguser.log' })
 	]
 });
 

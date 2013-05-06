@@ -27,7 +27,7 @@ var winston = require('winston');
 var logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)(),
-		new (winston.transports.File)({ filename: 'user.log' })
+		new (winston.transports.File)({ filename: './logs/user.log' })
 	]
 });
 

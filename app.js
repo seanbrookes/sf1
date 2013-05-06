@@ -15,7 +15,7 @@ var locale = require('./locale');
 var logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)(),
-		new (winston.transports.File)({ filename: 'app.log' })
+		new (winston.transports.File)({ filename:'/logs/app.log' })
 	]
 });
 
