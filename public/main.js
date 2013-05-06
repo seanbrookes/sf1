@@ -46,9 +46,7 @@ require.config({
         'morris'        : 'scripts/lib/morris.min',
         'composer'      : 'modules/composer/composer.controller',
         'user'          : 'modules/user/user.controller'
-//        'ia'            : 'modules/ia/ia.controller',
-//        'app'           : 'modules/app/app.controller',
-//        'home'          : 'modules/home/home.controller',
+
 
 
 
