@@ -2,7 +2,7 @@
  * Simple Framework One
  *
  *
- * Basic bootstrap application based node/mongo/backbone
+ * Basic bootstrap application based on mongo/node/backbone
  *
  */
 var express = require('express');
