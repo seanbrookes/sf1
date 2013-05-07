@@ -25,7 +25,6 @@ define(['jquery', 'marionette', 'sf1','router','app'],
         * */
         sf1.EventBus.bind('app.contextInitSuccess',
             function(){
-                // Define the app
 
 
                 sf1.app.addInitializer(function(options){
@@ -44,6 +43,7 @@ define(['jquery', 'marionette', 'sf1','router','app'],
                 });
 
 
+                // app currently declared in scripts/sf1.0.2.js
                 sf1.app.start();
 
             }

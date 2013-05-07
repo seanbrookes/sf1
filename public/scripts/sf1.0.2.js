@@ -1,9 +1,11 @@
 /**
- * kickoff the app
+ * kickoff the core app object
  *
- * define SF as Social Framework namespace
+ * Define sf1 as the root namespace
  *
- * export log and EventBus as global objects
+ * The core bootstrap algorithm needs some work as there are some cross dependencies
+ * with client-app and app.controller
+ * needs some attention to get into final state.
  *
  *
  */

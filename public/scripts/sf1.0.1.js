@@ -6,6 +6,8 @@
  * export log and EventBus as global objects
  *
  *
+ *
+ * @deprecated - see sf1.0.2.js
  */
 define(
     ['jquery', 'cookie'],
