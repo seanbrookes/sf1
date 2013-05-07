@@ -5,14 +5,9 @@
  * Date: 05/01/13
  * Time: 9:31 AM
  *
- */
-/**
- *
- * Baseline - make sure object is supported
  *
  *
  */
-
 require.config({
     enforceDefine: true,
     paths: {

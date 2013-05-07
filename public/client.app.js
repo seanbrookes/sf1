@@ -21,7 +21,7 @@ define(['jquery', 'marionette', 'sf1','router','app'],
         *
         * start the application
         *
-        *
+        * (from main.js)
         * */
         sf1.EventBus.bind('app.contextInitSuccess',
             function(){
