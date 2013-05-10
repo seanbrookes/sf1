@@ -74,12 +74,21 @@ define(['sf1','marionette'],
                 container:'.view-index'
             }
         });
+        var uiFormDataListOption = Backbone.Marionette.ItemView.extend({
+            template:'#UIFormDataListOptionTemplate'
+        });
+        var uiFormDataList = Backbone.Marionette.CompositeView.extend({
+            template:'#UIFormDataListTemplate',
+            itemView:uiFormDataListOption,
+            itemViewContainer:'datalist'
+        });
         return {
             IndexView:indexView,
             IndexLayout:indexDefaultLayout,
             UIForm:uiForm,
             UIButton:uiButton,
-            UIFormText:uiFormText
+            UIFormText:uiFormText,
+            UIFormDataList:uiFormDataList
         };
 
 

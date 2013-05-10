@@ -23,4 +23,15 @@
     <script id="UIButtonTemplate" type="text/template"><%= S.text %>
     </script>
 
+    <script id="UIFormDataListOptionTemplate" type="text/template">
+        <option label="<%= S.label %>" value="<%= S.value %>"><%= S.display %></option>
+
+    </script>
+    <!-- UI Form DataList -->
+    <script id="UIFormDataListTemplate" type="text/template">
+        <label for="<%= S.inputId %>" data-i18n="<%= S.i18n %>"><%= S.label %></label>
+        <input list="<%= S.listId %>" name="<%= S.inputId %>" id="<%= S.inputId %>" />
+        <datalist id="<%= S.listId %>"></datalist>
+    </script>
+
 </div>

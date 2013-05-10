@@ -30,7 +30,6 @@ define(['sf1','modules/ui/ui.form.models','modules/ui/ui.form.views','text!modul
             targetLayoutView.on('show',function(layout){
                 indexContainerRegion.show(targetView)
             });
-            //targetLayoutView.container.show(targetView);
 
             return targetLayoutView;
         };
@@ -40,6 +39,9 @@ define(['sf1','modules/ui/ui.form.models','modules/ui/ui.form.views','text!modul
             UIButton:View.UIButton,
             UIForm:View.UIForm,
             UIFormText:View.UIFormText,
+            UIDataList:View.UIFormDataList,
+            DataListModel:Model.UIFormDataList,
+            DataListOptionCollection:Model.UIFormDataListOptionCollection,
             UIButtonModel:Model.UIButton
         };
     }

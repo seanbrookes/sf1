@@ -55,6 +55,7 @@ define(['sf1','marionette','contextmenu'],
                 viewMenuRegion:'[data-region="ViewMenuRegion"]',
                 formMenuRegion:'[data-region="FormMenuRegion"]',
                 layoutMenuRegion:'[data-region="LayoutMenuRegion"]',
+                demoDataListRegion:'[data-region="demoDataListRegion"]',
                 codeEditorRegion:'composer-editor-container'
             },
             onShow:function(event){

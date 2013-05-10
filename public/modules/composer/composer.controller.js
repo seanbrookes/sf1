@@ -26,6 +26,31 @@ define(['sf1','uiform','modules/composer/composer.models','modules/composer/comp
                 this.formMenuRegion.show(new View.FormChooser());
                 this.viewMenuRegion.show(new View.ViewChooser());
                 //this.codeEditorRegion.show(new View.CodeEditor());
+                this.demoDataListRegion.show(new Form.UIDataList({
+                    model:new Form.DataListModel({
+                        label:'Demo Data List',
+                        i18n:'composer.demoDataList',
+                        inputId:'DemoDataList',
+                        listId:'OptionList'
+                    }),
+                    collection:new Form.DataListOptionCollection([
+                        {
+                            label:'ppk',
+                            value:'ppk',
+                            display:'ppk'
+                        },
+                        {
+                           label:'sean',
+                           value:'sean',
+                           display:'sean'
+                        },
+                        {
+                           label:'ppx',
+                           value:'ppx',
+                           display:'ppx'
+                        }
+                    ])
+                }));
 
             });
 
