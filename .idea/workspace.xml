@@ -13,7 +13,7 @@
     <ignored path="./idea/" />
     <ignored path="user.log" />
     <ignored path="app-config.js" />
-    <file path="/Dummy.txt" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1370707427236" ignored="false" />
+    <file path="/Dummy.txt" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1370707456592" ignored="false" />
     <file path="/router.js" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1367708449000" ignored="false" />
     <file path="/translation.json" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1362848011859" ignored="false" />
     <file path="/ia-template.html" changelist="4cf87770-f4a7-456a-a049-9bc7007f72e5" time="1363276954564" ignored="false" />
@@ -496,7 +496,11 @@
       <created>1370707433377</created>
       <updated>1370707433377</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="initial project setup&#10;">
+      <created>1370707459955</created>
+      <updated>1370707459955</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
