@@ -1,5 +1,5 @@
 /**
- * Simple Framework One
+ * Seanica
  *
  *
  * Basic bootstrap application based on mongo/node/backbone
