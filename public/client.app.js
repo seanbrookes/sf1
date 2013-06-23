@@ -59,12 +59,17 @@ define(['jquery', 'marionette', 'sf1','router','app'],
             that.module = req.module; // :'score',
             that.view = req.view; // 'SummaryView'
             that.data = req.data;
+            that.callback = req.callback;
 
             require([that.module],function(mod){
 
                 var targetRegion = sf1.app[that.region];
 
-                targetRegion.show(mod[that.view]());
+                targetRegion.show(mod[that.view](that.data));
+
+                if (that.callback){
+                    that.callback();
+                }
 
             });
         };

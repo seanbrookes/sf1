@@ -80,14 +80,13 @@ define(
                 return false;
             }
         };
-        sf1.totalSort = function(a,b){
-            if (a.total > b.total){
-                return -1;
+        sf1.currUserId = function(){
+            if ($.cookie('userId')){
+                return $.cookie('userId');
             }
-            if (a.total < b.total){
-                return 1;
+            else{
+                return null;
             }
-            return 0;
         };
         sf1.app = new Backbone.Marionette.Application();
         //sf1.app = app;

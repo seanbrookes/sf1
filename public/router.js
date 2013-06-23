@@ -26,6 +26,8 @@ define(['sf1','marionette','app'],
                 "signup"    : "signup",
                 "admin"     : "admin",
                 "security"  : "security",
+                "post"      : "post",
+                "post/edit/:slug"   : "post",
                 "composer"  : "composer",
                 "user"      : "user"
             },

@@ -6,7 +6,7 @@
  * Time: 10:57 PM
  *
  */
-define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app/app.templates.html'],
+define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app/app.templates.html', 'modal'],
     function(sf1,Model,View,template){
 
         var anchorSelector = '#TemplateContainer';
@@ -17,6 +17,106 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
         // attach the module template markup to the DOM
         $(anchorSelector).append(baseMarkup);
 
+        var ModalRegion = Backbone.Marionette.Region.extend({
+            el: '[data-region="modalWin"]',
+
+            constructor: function(){
+                _.bindAll(this);
+                Backbone.Marionette.Region.prototype.constructor.apply(this, arguments);
+                this.on("show", this.showModal, this);
+                this.on("hide", this.hideModal, this);
+            },
+
+            getEl: function(selector){
+                var $el = $(selector);
+                $el.on("hidden", this.close);
+                return $el;
+            },
+//
+            showModal: function(view){
+                //view.on("close", this.hideModal, this);
+                sf1.log('| Show Modal');
+                // simplemodal-container
+
+                // simplemodal-overlay DropZone
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+                this.$el.modal({
+//                    overlayClose:true,
+                    autoResize:true,
+                    minWidth:700,
+                    modal:true,
+                    onShow:function(dialog){
+                        //$(dialog.container).draggable();
+                    },
+                    onOpen: function (dialog) {
+                        dialog.overlay.fadeIn('slow', function () {
+                            dialog.data.hide();
+                            dialog.container.fadeIn('slow', function () {
+                                dialog.data.slideDown('slow');
+                            });
+                        });
+                        $('#simplemodal-container').prop('draggable', true);
+                        // drop
+                        var drop = $('#simplemodal-overlay');
+                        drop.ondrop = function (event){
+                            var data = JSON.parse(event.dataTransfer.getData('text/plain'));
+                            this.innerHTML += '<div class="test-layout" draggable="true" data-element="target-element" data-region-type="' + data.element + '">' + data.element + '</div>';
+                            $('.test-layout')[0].ondrop= function(event){
+                                sf1.log('test layout is working');
+                            };
+
+                        };
+
+                        // dragover
+                        drop.ondragover = function () {
+                            return false;
+                        };
+                    },
+                    onClose: function (dialog) {
+                        dialog.data.fadeOut('slow', function () {
+                            dialog.container.hide('slow', function () {
+                                dialog.overlay.slideUp('slow', function () {
+                                    $.modal.close();
+                                });
+                            });
+                        });
+                    }
+                });
+            },
+
+//            hideModal: function(){
+//                this.$el.modal('hide');
+//            },
+
+
+            onShow:function(){
+                //  this.showModal(this);
+            },
+
+
+//                showModal: function(view){
+//                    view.on("close", this.hideModal, this);
+//                    var $modalEl = $('#ModalWin');
+//                    $modalEl.modal({overlayClose:true});
+//                },
+
+            hideModal: function(){
+                this.$el.modal('hide');
+            }
+        });
         sf1.app.addInitializer(function(options){
 
             // in case we want to override the default
@@ -28,7 +128,8 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                 appMainRegion: '.app-main',
                 appHeaderRegion:'.app-header',
                 appFooterRegion:'.app-footer',
-                mainNavRegion:'.main-nav'
+                mainNavRegion:'.main-nav',
+                modalRegion: ModalRegion
             });
 
             sf1.app.viewPort.show(baseLayout);
@@ -61,6 +162,33 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                     region:'appMainRegion',
                     module:'home',
                     view:'IndexView'
+
+                });
+
+            },
+            post: function () {
+                sf1.log('post');
+                sf1.EventBus.trigger('ia.mainNavEvent', [
+                    {route: 'post'}
+                ]);
+                sf1.EventBus.trigger('ia.loadRegionContentRequest',{
+                    region:'appMainRegion',
+                    module:'post',
+                    view:'IndexView'
+
+                });
+
+            },
+            post: function (slug) {
+                sf1.log('post edit');
+                sf1.EventBus.trigger('ia.mainNavEvent', [
+                    {route: 'post/edit'}
+                ]);
+                sf1.EventBus.trigger('ia.loadRegionContentRequest',{
+                    region:'appMainRegion',
+                    module:'post',
+                    view:'IndexView',
+                    data:slug
 
                 });
 

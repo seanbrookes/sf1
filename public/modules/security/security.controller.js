@@ -36,19 +36,13 @@ define(['sf1','modules/security/security.models','modules/security/security.view
         };
         var loginView = function(){
 
-
-
             var targetView = new View.Login();
-
 
             return targetView;
         };
         var signUpView = function(){
 
-
-
             var targetView = new View.SignUp();
-
 
             return targetView;
         };

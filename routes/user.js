@@ -59,7 +59,7 @@ exports.createUser = function(req, res){
 			email: userName,
 			password: password,
 			activationToken: getToken(),
-			accountStatus: 'pending'
+			accountStatus: 'active'
 		};
 		var newUser = new User(user);
 
@@ -182,11 +182,11 @@ exports.postAuthenticate = function(req, res){
 							req.session.isAuthenticated = true;
 							res.cookie('isAuthenticated',true);
 							res.cookie('userName',user.userName);
-							res.cookie('userId',user._id);
+							res.cookie('userId',user._id.toString());
 							req.session.userName = user.userName;
-							req.session.userId = user._id;
-							console.log('Session User Name: ' + req.session.userName);
-							console.log('Session object: ' + JSON.stringify(req.session));
+							req.session.userId = user._id.toString();
+							logger.info('Session User Name: ' + req.session.userName);
+							logger.info('Session object: ' + JSON.stringify(req.session));
 							//res.send('LOGGED IN');
 							exports.isUserAuth(req, res);
 						}
@@ -244,7 +244,7 @@ exports.postAuthenticate = function(req, res){
  * @return {Boolean}
  */
  exports.isUserAuth = function(req, res){
-	 res.send({isAuthenticated:req.session.isAuthenticated ? true : false,userName:req.session.userName});
+	 res.send({isAuthenticated:req.session.isAuthenticated ? true : false,userName:req.session.userName,userId:req.session.userId});
 };
 /*
  *

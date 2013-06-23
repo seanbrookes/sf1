@@ -35,6 +35,7 @@ define(['sf1','marionette'],
             itemView:navItemView,
             onShow:function(event){
                 $('.global-nav-container').i18n();
+                sf1.EventBus.trigger('ia.configureGreetingRequest');
             }
         });
 

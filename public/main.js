@@ -14,6 +14,7 @@ require.config({
         'jquery'        : 'scripts/lib/jquery-1.8.2.min',
         'cookie'        : 'scripts/lib/plugins/jquery.cookie',
         'tabs'          : 'scripts/lib/plugins/kube.tabs',
+        'rtelib'        : 'scripts/lib/ckeditor/ckeditor',
         'prettydate'    : 'scripts/lib/plugins/jquery.prettydate',
         'contextmenu'   : 'scripts/lib/plugins/jquery.contextmenu',
         'underscore'    : 'scripts/lib/underscore',
@@ -24,13 +25,15 @@ require.config({
         'bootstrap'     : 'bootstrap/js/bootstrap',
         'client'        : 'client.app',
         'app'           : 'modules/app/app.controller',
-        'sf1'           : 'scripts/sf1.0.2',
+        'sf1'           : 'scripts/sf1.0.3',
         'security'      : 'modules/security/security.controller',
         'admin'         : 'modules/admin/admin.controller',
+        'post'          : 'modules/post/post.controller',
         'index'         : 'modules/index/index-module',
         'home'          : 'modules/home/home.controller',
         'io'            : 'modules/io/io-module',
         'ui'            : 'modules/ui/ui-module',
+        'uirte'         : 'modules/ui/ui.rte.controller',
         'uiform'        : 'modules/ui/ui.form.controller',
         'ia'            : 'modules/ia/ia.controller',
         'router'        : 'router',
@@ -40,7 +43,9 @@ require.config({
         'd3'            : 'scripts/lib/d3.v3.min',
         'morris'        : 'scripts/lib/morris.min',
         'composer'      : 'modules/composer/composer.controller',
-        'user'          : 'modules/user/user.controller'
+        'user'          : 'modules/user/user.controller',
+        'modal'         : 'scripts/lib/plugins/jquery.simplemodal-1.4.4',
+        'chai'          : '/tests/libs/chai'
 
 
 
