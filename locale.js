@@ -8,10 +8,17 @@
 var events = require('events');
 var EE = require('events').EventEmitter;
 var EventBus = new EE();
+var winston = require('winston');
+var logger = new (winston.Logger)({
+    transports: [
+        new (winston.transports.Console)(),
+        new (winston.transports.File)({ filename: './logs/locale.log' })
+    ]
+});
 exports.locale = function(req, res, next) {
-    console.log('--------------   Start locale processing ---------');
+    logger.info('--------------   Start locale processing ---------');
 //    EventBus.on('createUser',function(obj){
-//        console.log('Create User Event handler called - app.js - locale test request intercept');
+//        logger.info('Create User Event handler called - app.js - locale test request intercept');
 //    });
     /*
 
@@ -25,7 +32,7 @@ exports.locale = function(req, res, next) {
     var locales = req.headers["accept-language"];
 
     var sessionLocale = 'en';
-    console.log('Default locale: ' + sessionLocale);
+    logger.info('Default locale: ' + sessionLocale);
     var localeArray = locales.split(',');
 
     for (var i = 0;i < localeArray.length;i++){
@@ -41,7 +48,7 @@ exports.locale = function(req, res, next) {
         else{
             consoleOutput = tempArray[0];
         }
-        console.log('accept-language item: ' + consoleOutput);
+        logger.info('accept-language item: ' + consoleOutput);
     }
     /*
      * there is no locale set for this session so we need
@@ -51,7 +58,7 @@ exports.locale = function(req, res, next) {
      *
      * */
     if (!req.session.userLocale){
-        console.log('No userLocale detected');
+        logger.info('No userLocale detected');
         if (req.session.isAuthenticated){
             /*
              * this is an authenticated user so we need to check if they have a user preference for locale
@@ -65,32 +72,32 @@ exports.locale = function(req, res, next) {
              * if we don't find it then set to sessionLocale
              * */
             var currentUserId = req.session.userId;
-            console.log('Current session is authenticated id:' + currentUserId);
+            logger.info('Current session is authenticated id:' + currentUserId);
             // query mongo for user preference
             var userPreferenceName = 'userLocale';
 
 
             UserModel.findOne({_id:currentUserId},function(err,user){
                 if (err){
-                    console.log('ERROR finding user in db for session locale preference');
+                    logger.info('ERROR finding user in db for session locale preference');
                 }
                 if(user){
-                    console.log('We found the logged in user for preference');
+                    logger.info('We found the logged in user for preference');
                     /*
                      * check if user has a user preference set for the locale property
                      * */
                     if (((user.preferences)) && (user.preferences.locale)){
-                        console.log('THIS USER HAS A PREFERENCE FOR LOCALE');
+                        logger.info('THIS USER HAS A PREFERENCE FOR LOCALE');
                         req.session.userLocale = user.preferences.locale;
                     }
                     else{
                         // no persisted locale preference so set default
-                        console.log('the authenticated user has not yet set a preference for user locale')
+                        logger.info('the authenticated user has not yet set a preference for user locale')
                         req.session.userLocale = sessionLocale;
                     }
                 }
                 else{
-                    console.log('this should not happen but indicates there was no user and no error returned from findOne request');
+                    logger.info('this should not happen but indicates there was no user and no error returned from findOne request');
                 }
             });
 
@@ -99,7 +106,7 @@ exports.locale = function(req, res, next) {
         }
         else{
             // session is not authenticated - make sure the cookie is empty
-            console.log('req.session is not authenticated');
+            logger.info('req.session is not authenticated');
             res.cookie('isAuthenticated',false);
             res.cookie('userName',null);
             res.cookie('userId',null);
@@ -114,7 +121,7 @@ exports.locale = function(req, res, next) {
         }
     }
     else{
-        console.log('We have a session.userLocale');
+        logger.info('We have a session.userLocale');
     }
 
 
