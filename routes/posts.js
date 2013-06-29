@@ -11,7 +11,6 @@ var Post = require('../models/post-model');
 var User = require('../models/user-model');
 var _ = require('underscore');
 var winston = require('winston');
-var ejs = require('ejs');
 var fs = require('fs');
 
 var logger = new (winston.Logger)({
