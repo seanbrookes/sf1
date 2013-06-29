@@ -69,12 +69,12 @@ define(['sf1','modules/ia/ia.models','modules/ia/ia.views','text!modules/ia/ia.t
         *
         * */
         sf1.EventBus.bind('ia.configureGreetingRequest',function(event){
-            sf1.log('inside configureGreetingRequest');
+            sf1.logger.info('inside configureGreetingRequest');
             $.ajax({
                 type:'GET',
                 url:'/isauth',
                 success:function(response){
-                    sf1.log(response);
+                    sf1.logger.info(response);
                     /*
                      *
                      * tighten this up (event pub/sub)
@@ -97,7 +97,7 @@ define(['sf1','modules/ia/ia.models','modules/ia/ia.views','text!modules/ia/ia.t
                     }
                 },
                 error:function(response){
-                    sf1.log(response);
+                    sf1.logger.error(response);
                 }
             });
         });
@@ -111,7 +111,7 @@ define(['sf1','modules/ia/ia.models','modules/ia/ia.views','text!modules/ia/ia.t
                 type:'GET',
                 url:'/logout',
                 success:function(response){
-                    sf1.log(response);
+                    sf1.logger.info(response);
                     if (response.isAuthenticated){
                         $('[data-i18n="ia.login"]').text('hello ' + response.userName + ' (logout)');
                         $('[data-i18n="ia.login"]').click(function(event){
@@ -135,7 +135,7 @@ define(['sf1','modules/ia/ia.models','modules/ia/ia.views','text!modules/ia/ia.t
                     }
                 },
                 error:function(response){
-                    sf1.log(response);
+                    sf1.logger.error(response);
                 }
             });
         });

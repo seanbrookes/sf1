@@ -25,7 +25,7 @@ require.config({
         'bootstrap'     : 'bootstrap/js/bootstrap',
         'client'        : 'client.app',
         'app'           : 'modules/app/app.controller',
-        'sf1'           : 'scripts/sf1.0.3',
+        'sf1'           : 'scripts/sf1.0.4',
         'security'      : 'modules/security/security.controller',
         'admin'         : 'modules/admin/admin.controller',
         'post'          : 'modules/post/post.controller',

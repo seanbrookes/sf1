@@ -17,6 +17,16 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
         // attach the module template markup to the DOM
         $(anchorSelector).append(baseMarkup);
 
+        /*
+        *
+        *   MODAL REGION
+        *
+        *   --  this has to move
+        *   // TODO move this
+        *
+        *
+        *
+        * */
         var ModalRegion = Backbone.Marionette.Region.extend({
             el: '[data-region="modalWin"]',
 
@@ -35,7 +45,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
 //
             showModal: function(view){
                 //view.on("close", this.hideModal, this);
-                sf1.log('| Show Modal');
+                sf1.logger.info('| Show Modal');
                 // simplemodal-container
 
                 // simplemodal-overlay DropZone
@@ -75,7 +85,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                             var data = JSON.parse(event.dataTransfer.getData('text/plain'));
                             this.innerHTML += '<div class="test-layout" draggable="true" data-element="target-element" data-region-type="' + data.element + '">' + data.element + '</div>';
                             $('.test-layout')[0].ondrop= function(event){
-                                sf1.log('test layout is working');
+                                sf1.logger.info('test layout is working');
                             };
 
                         };
@@ -117,6 +127,12 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                 this.$el.modal('hide');
             }
         });
+
+        /*
+        *
+        * On Start
+        *
+        * */
         sf1.app.addInitializer(function(options){
 
             // in case we want to override the default
@@ -152,9 +168,17 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
        // var xyp = baseLayout.appMainRegion;
 
         // this should be moved to a model on the app module
+
+        /*
+        *
+        *
+        *   ROUTER
+        *
+        *
+        * */
         var routerConfig = {
             index: function () {
-                sf1.log('index');
+                sf1.logger.info('index');
                 sf1.EventBus.trigger('ia.mainNavEvent', [
                     {route: 'index'}
                 ]);
@@ -162,12 +186,10 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                     region:'appMainRegion',
                     module:'home',
                     view:'IndexView'
-
                 });
-
             },
             post: function () {
-                sf1.log('post');
+                sf1.logger.info('post');
                 sf1.EventBus.trigger('ia.mainNavEvent', [
                     {route: 'post'}
                 ]);
@@ -175,12 +197,10 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                     region:'appMainRegion',
                     module:'post',
                     view:'IndexView'
-
                 });
-
             },
-            post: function (slug) {
-                sf1.log('post edit');
+            postEdit: function (slug) {
+                sf1.logger.info('post edit');
                 sf1.EventBus.trigger('ia.mainNavEvent', [
                     {route: 'post/edit'}
                 ]);
@@ -195,7 +215,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
             },
 
             signup:function () {
-                sf1.log('signup route');
+                sf1.logger.info('signup route');
                 sf1.EventBus.trigger('ia.mainNavEvent',{route:'signup'});
                 sf1.EventBus.trigger('ia.loadRegionContentRequest',{
                     region:'appMainRegion',
@@ -206,7 +226,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
             },
 
             login:function () {
-                sf1.log('login route');
+                sf1.logger.info('login route');
                 sf1.EventBus.trigger('ia.mainNavEvent',{route:'login'});
                 sf1.EventBus.trigger('ia.loadRegionContentRequest',{
                     region:'appMainRegion',
@@ -224,7 +244,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
             },
 
             admin:function () {
-                sf1.log('admin route');
+                sf1.logger.info('admin route');
 
                 /*
                  *
@@ -249,7 +269,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                 });
             },
             user: function () {
-                sf1.log('user');
+                sf1.logger.info('user');
                 sf1.EventBus.trigger('ia.mainNavEvent', [
                     {route: 'user'}
                 ]);
@@ -262,7 +282,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
 
             },
             home: function () {
-                sf1.log('home');
+                sf1.logger.info('home');
                 sf1.EventBus.trigger('ia.mainNavEvent', [
                     {route: 'home'}
                 ]);
@@ -275,7 +295,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
 
             },
             composer: function(){
-                sf1.log('composer');
+                sf1.logger.info('composer');
                 sf1.EventBus.trigger('ia.mainNavEvent',[{route: 'composer'}]);
                 sf1.EventBus.trigger('ia.loadRegionContentRequest',{
                     region:'appMainRegion',

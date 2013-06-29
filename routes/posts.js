@@ -22,6 +22,19 @@ var logger = new (winston.Logger)({
     ]
 });
 
+var getSlug = function(title){
+
+    // replace spaces with dashes
+
+    // remove question marks
+
+    var retVal = title;
+    if (title.indexOf(' ') > -1){
+        retVal = replaceAll(' ','-',title).toLowerCase();
+    }
+    return retVal;
+};
+
 exports.getPosts = function(req,res){
 
     //Post.find({},function(err,dox){
@@ -121,14 +134,7 @@ exports.getPostBySlug = function(req,res){
 function replaceAll(find, replace, str) {
     return str.replace(new RegExp(find, 'g'), replace);
 }
-var getSlug = function(title){
 
-    var retVal = title;
-    if (title.indexOf(' ') > -1){
-        retVal = replaceAll(' ','-',title).toLowerCase();
-    }
-    return retVal;
-};
 exports.addPost = function(req,res){
     var postUserId = req.param('userId',null);
     var postTitle = req.param('title',null);
