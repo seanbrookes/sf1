@@ -65,30 +65,6 @@
 			"href":"#login",
 			"title":"iaI18n.k18Login",
 			"name":"iaI18n.k18Login"
-		},
-		{
-			"renderRules":[
-				{
-					"isAuth":false
-				}
-			],
-			"href":"#signup",
-			"cssClasses":[
-				"global-nav-item"
-			],
-			"dataAttribs":[
-				{
-					"name":"route",
-					"value":"signup"
-				},
-				{
-					"name":"i18n",
-					"value":"ia.signup"
-				}
-			],
-            "i18nKey":"ia.signup",
-			"title":"iaI18n.k18SignUp",
-			"name":"iaI18n.k18SignUp"
 		}
 	]
 }

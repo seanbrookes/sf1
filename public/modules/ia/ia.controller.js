@@ -5,6 +5,40 @@
  * Date: 13/04/13
  * Time: 10:57 PM
  *
+ *
+ *
+ * removed to avoid new accounts being created but might be
+ *
+ * might be needed in the futuer
+ *
+ {
+     "renderRules":[
+         {
+             "isAuth":false
+         }
+     ],
+     "href":"#signup",
+     "cssClasses":[
+         "global-nav-item"
+     ],
+     "dataAttribs":[
+         {
+             "name":"route",
+             "value":"signup"
+         },
+         {
+             "name":"i18n",
+             "value":"ia.signup"
+         }
+     ],
+     "i18nKey":"ia.signup",
+     "title":"iaI18n.k18SignUp",
+     "name":"iaI18n.k18SignUp"
+ }
+ *
+ *
+ *
+ *
  */
 define(['sf1','modules/ia/ia.models','modules/ia/ia.views','text!modules/ia/ia.templates.html'],
     function(sf1, Model, View, template){
