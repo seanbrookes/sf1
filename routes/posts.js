@@ -13,7 +13,6 @@ var _ = require('underscore');
 var winston = require('winston');
 var ejs = require('ejs');
 var fs = require('fs');
-var _ = require('underscore');
 
 var logger = new (winston.Logger)({
     transports: [
