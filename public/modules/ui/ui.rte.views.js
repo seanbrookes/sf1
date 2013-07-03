@@ -10,7 +10,15 @@ define(['sf1','marionette','rtelib'],
     function(sf1, Marionette){
 
         var rteView = Backbone.Marionette.CompositeView.extend({
-                template:'#UIRTETemplate'
+                template:'#UIRTETemplate',
+                events:{
+                    'blur #editor':function(event){
+                        sf1.logger.info('EDITOR ON KEY UP uauaasdfasdfasdfuuooooo!!!');
+                    },
+                    'keyUp #editor':function(event){
+                        sf1.logger.info('EDITOR ON KEY UP uauaasdfasdfasdfuuooooo!!!');
+                    }
+                }
             }
         );
 

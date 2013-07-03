@@ -6,8 +6,8 @@
  * Time: 10:13 PM
  *
  */
-define(['sf1','modules/ui/ui.rte.models','modules/ui/ui.rte.views','text!modules/ui/ui.rte.templates.html','rtelib'],
-    function(sf1, Model, View, template){
+define(['sf1','modules/ui/ui.rte.models','modules/ui/ui.rte.views','text!modules/ui/ui.rte.templates.html','rteconfig','rtelib'],
+    function(sf1, Model, View, template,rteconfig){
         var anchorSelector = '#TemplateContainer';
 
         _.templateSettings.variable = 'S';
@@ -15,10 +15,12 @@ define(['sf1','modules/ui/ui.rte.models','modules/ui/ui.rte.views','text!modules
         // attach the module template markup to the DOM
         $(anchorSelector).append(baseMarkup);
 
+        var mySettings = rteconfig;
         var rteView = function(){
             var rteComponentView = new View.RTEView();
             rteComponentView.on('show',function(){
-                CKEDITOR.replace( 'editor' );
+                //CKEDITOR.replace( 'editor' );
+                $("#sf1RTEEditor").markItUp(mySettings);
             });
 
 

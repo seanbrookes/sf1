@@ -43,6 +43,9 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
                 });
                 composerRegion.show(new View.PostEditorLayout());
                 editorRegion.show(new RTE.RTE());
+                $('#sf1RTEEditor').on('keyup', function(event){
+                    sf1.EventBus.trigger('post.previewPostRequest');
+                });
                 // check if slug passed in
                 if (slug){
                     sf1.EventBus.trigger('post.loadEditPostBySlug',slug);
@@ -186,8 +189,10 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
             $('#PostId').val(post._id);
             $('#PostTitle').val(post.title);
             $('#PostSlug').text(post.slug);
-            CKEDITOR.instances.sf1RTEEditor.setData(post.body);
+            $('#sf1RTEEditor').val(post.body);
+//            CKEDITOR.instances.sf1RTEEditor.setData(post.body);
             $('#PostStatus').val(post.status);
+
         });
           /*
          *
@@ -217,13 +222,13 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
          *
          * */
         sf1.EventBus.bind('post.savePostButtonClicked',function(event){
-            sf1.log('save post button click event');
-            sf1.log('Post Contents: ' + CKEDITOR.instances.sf1RTEEditor.getData());
+            sf1.logger.info('save post button click event');
+            sf1.logger.info('Post Contents: ' + $('#sf1RTEEditor').val());
             if (userId){
                 var postObj = {};
                 postObj.userId = userId;
                 postObj.title = $('#PostTitle').val();
-                postObj.body = CKEDITOR.instances.sf1RTEEditor.getData();
+                postObj.body = $('#sf1RTEEditor').val();
                 if ('new' === editorMode){
                     postObj.status = 'draft';
                     // save new post
@@ -232,10 +237,10 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
                         url:'/posts',
                         data:postObj,
                         success:function(response){
-                            sf1.log('success saving post: ' + response);
+                            sf1.logger.info('success saving post: ' + response);
                         },
                         error:function(response){
-                            sf1.log('error saving post: ' + response);
+                            sf1.logger.error('error saving post: ' + response);
                         }
                     });
 
@@ -253,10 +258,10 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
                             url:'/posts/' + postObj.id,
                             data:postObj,
                             success:function(response){
-                                sf1.log('success saving post: ' + response);
+                                sf1.logger.info('success saving post: ' + response);
                             },
                             error:function(response){
-                                sf1.log('error saving post: ' + response);
+                                sf1.logger.error('error saving post: ' + response);
                             }
                         });
                     }
@@ -264,7 +269,7 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
                 }
             }
             else{
-                sf1.log('warn - no user id');
+                sf1.logger.warn('warn - no user id');
             }
 
         });
@@ -274,23 +279,30 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
          *
          * */
         sf1.EventBus.bind('post.previewPostButtonClicked',function(event){
-            sf1.log('Preview post button click event');
-            sf1.log('Post Contents: ' + CKEDITOR.instances.sf1RTEEditor.getData());
-            var postData = CKEDITOR.instances.sf1RTEEditor.getData();
+            sf1.logger.info('Preview post button click event');
+            sf1.EventBus.trigger('post.previewPostRequest');
+        });
+        /*
+        *
+        * Preview Request
+        *
+        * */
+        sf1.EventBus.bind('post.previewPostRequest',function(){
+            sf1.logger.info('Post Contents: ' + $('#sf1RTEEditor').val());
+            var postData = $('#sf1RTEEditor').val();
             if (postData){
                 $('.btn-close-preview').show();
                 $('.post-preview').html(postData);
             }
-
         });
-        /*
+         /*
          *
          * Reset Button
          *
          * */
         sf1.EventBus.bind('post.resetPostButtonClicked',function(event){
-            sf1.log('Reset post button click event');
-            sf1.log('Post Contents: ' + CKEDITOR.instances.sf1RTEEditor.getData());
+            sf1.logger.info('Reset post button click event');
+            sf1.logger.info('Post Contents: ' + $('#sf1RTEEditor').val());
         });
         /*
          *
@@ -298,8 +310,8 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
          *
          * */
         sf1.EventBus.bind('post.closePostPreviewButtonClicked',function(event){
-            sf1.log('close preview post button click event');
-            sf1.log('Post Contents: ' + CKEDITOR.instances.sf1RTEEditor.getData());
+            sf1.logger.info('close preview post button click event');
+            sf1.logger.info('Post Contents: ' + $('#sf1RTEEditor').val());
             $('.btn-close-preview').hide();
             $('.post-preview').empty();
         });
@@ -314,7 +326,7 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
             var postStatus = $(event.target).data('status');
 
             if (postId){
-                sf1.log('in post.changePostStatusClicked: ' + postId);
+                sf1.logger.info('in post.changePostStatusClicked: ' + postId);
 
                 var postItemStatusRegion = new Marionette.Region({
                     el:'td.col-post-status[data-id="' + postId + '"]'
@@ -328,7 +340,7 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
                 // set the event listener on select change
             }
             else{
-                sf1.log('attempt to edit status chang but no post id');
+                sf1.logger.info('attempt to edit status chang but no post id');
             }
         });
         /*
@@ -359,21 +371,21 @@ define(['sf1','modules/post/post.models','modules/post/post.views','text!modules
 
                         break;
                     case 'draft':
-                        sf1.log('TO BE IMPLEMENTED change to draft THIS POST: ' + postId);
+                        sf1.logger.info('TO BE IMPLEMENTED change to draft THIS POST: ' + postId);
                         break;
 
                     case 'deleted':
                         if (confirm('delete this post?')){
-                            sf1.log('DELETE THIS POST: ' + postId);
+                            sf1.logger.info('DELETE THIS POST: ' + postId);
                         }
                         break;
                     default:
-                        sf1.log('warn - attempt to change post status with no status');
+                        sf1.logger.warn('warn - attempt to change post status with no status');
 
                 }
             }
             else{
-                sf1.log('warn - attempt to change status with no post id');
+                sf1.logger.warn('warn - attempt to change status with no post id');
             }
         });
 

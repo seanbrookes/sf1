@@ -35,7 +35,12 @@ define(
 
             }
         };
-
+        /*
+        *
+        * template key
+        * */
+        var sf1 = {};
+        sf1.tplKey = 'S';
         /*
         * ver 0.0.3
         * */

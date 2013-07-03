@@ -1,1 +1,8 @@
--
+-{"level":"info","message":"login attempt","timestamp":"2013-06-29T06:58:28.850Z"}
+{"level":"info","message":"{\"email\":\"s@s.com\",\"password\":\"p\"}","timestamp":"2013-06-29T06:58:28.852Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-06-29T07:53:52.613Z"}
+{"level":"info","message":"{\"email\":\"s@s.com\",\"password\":\"p\"}","timestamp":"2013-06-29T07:53:52.614Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-07-03T02:25:27.703Z"}
+{"level":"info","message":"{\"email\":\"s@s.com\",\"password\":\"p\"}","timestamp":"2013-07-03T02:25:27.706Z"}
+{"level":"info","message":"login attempt","timestamp":"2013-07-03T04:46:53.845Z"}
+{"level":"info","message":"{\"email\":\"s@s.com\",\"password\":\"password\"}","timestamp":"2013-07-03T04:46:53.849Z"}
