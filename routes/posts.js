@@ -12,6 +12,9 @@ var User = require('../models/user-model');
 var _ = require('underscore');
 var winston = require('winston');
 var fs = require('fs');
+var querystring = require('querystring');
+var http = require('http');
+
 
 var logger = new (winston.Logger)({
     transports: [
@@ -243,14 +246,145 @@ exports.publishPost = function(req,res){
 
             User.findById(post.userId, function (err, user){
                 //post.author = user.userName;
-                logger.info('| here | just before file wright AUTHOR: ' + post.author);
-                writePublishedFile(post,function(req,res){
-                        return res.send(200);
-                    },
-                    function(req,res){
-                        return res.send(500);
+                logger.info('| here | just before POSTING: ' + post.slug);
+
+
+
+
+
+
+                var targetConfig = {
+                    host:'www.seani.ca',
+                    port: '80',
+                    apiKey:'sdfaersdf23ewdf2wdfs5'
+                };
+
+                var publishDoc;
+
+                fs.readFile('./views/postTemplate.html', 'utf8', function (err,template) {
+                    if (err) {
+                        return logger.error(err);
                     }
-                );
+                    post.renderDate = renderDate(post.publishDate);
+                    var pubDate = new Date(post.publishDate);
+                    post.publishYear = pubDate.getYear();
+                    post.renderDate = pubDate.getMonth();
+                    //logger.info('readFile  ' + template);
+//                    var filePath = './public/posts/2013/';
+//                    var fileName = post.slug + '.html';
+                    publishDoc = _.template( template, post);
+                    //fs.writeFileSync( './public/posts/2013/' + post.slug + '.html', _.template( template, { title: post.title,body:post.body } ) );
+                    logger.info('| here |  the doc to post: ' + publishDoc);
+
+                    var post_data = querystring.stringify({
+                        'ApiKey' : targetConfig.apiKey,
+                        'PostPublishYear': post.publishYear,
+                        'PostPublishMonth': post.renderDate,
+                        'PostSlug' : post.slug,
+                        'PostBody' : publishDoc
+                    });
+
+                    // An object of options to indicate where to post to
+                    var post_options = {
+                        host: targetConfig.host,
+                        port: targetConfig.port,
+                        path: '/inbox.php',
+                        method: 'POST',
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded',
+                            'Content-Length': publishDoc.length
+                        }
+                    };
+
+
+                    // Set up the request
+                    /*
+                     *
+                     *
+                     * Request
+                     *
+                     *
+                     * */
+                    var post_req = http.request(post_options, function(res) {
+                        res.setEncoding('utf8');
+                        res.on('data', function (chunk) {
+                            logger.info('Response: ' + chunk);
+                        });
+                    });
+                    post_req.write(post_data);
+                    post_req.end();
+
+
+                    logger.info('| here | just before file wright AUTHOR: ' + post.author);
+
+
+
+
+
+
+
+
+//                    fs.writeFile(filePath + fileName, fileContent, function (err) {
+//                        if (err) {
+//                            logger.error('Error writing file' + err);
+//                        }
+//                        logger.info('It\'s saved! ' + post.title);
+//                    });
+
+                    //fileGuts.filename = __dirname + '/placemark.ejs';
+                    //var html = ejs.render(fileGuts,post);
+                    //logger.info('RENDER OUTPUT: ' +  html);
+
+                });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
+//                writePublishedFile(post,function(req,res){
+//                        return res.send(200);
+//                    },
+//                    function(req,res){
+//                        return res.send(500);
+//                    }
+//                );
                 return res.send(200);
             });
             return res.send(200);
