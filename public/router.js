@@ -26,9 +26,6 @@ define(['sf1','marionette','app'],
                 "signup"    : "signup",
                 "admin"     : "admin",
                 "security"  : "security",
-                "post"      : "post",
-                "post/edit/:slug"   : "postEdit",
-                "composer"  : "composer",
                 "user"      : "user"
             },
             controller: app.getRouterConfig()

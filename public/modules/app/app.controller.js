@@ -188,31 +188,7 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
                     view:'IndexView'
                 });
             },
-            post: function () {
-                sf1.logger.info('post');
-                sf1.EventBus.trigger('ia.mainNavEvent', [
-                    {route: 'post'}
-                ]);
-                sf1.EventBus.trigger('ia.loadRegionContentRequest',{
-                    region:'appMainRegion',
-                    module:'post',
-                    view:'IndexView'
-                });
-            },
-            postEdit: function (slug) {
-                sf1.logger.info('post edit');
-                sf1.EventBus.trigger('ia.mainNavEvent', [
-                    {route: 'post/edit'}
-                ]);
-                sf1.EventBus.trigger('ia.loadRegionContentRequest',{
-                    region:'appMainRegion',
-                    module:'post',
-                    view:'IndexView',
-                    data:slug
 
-                });
-
-            },
 
             signup:function () {
                 sf1.logger.info('signup route');
@@ -293,15 +269,6 @@ define(['sf1','modules/app/app.models','modules/app/app.views','text!modules/app
 
                 });
 
-            },
-            composer: function(){
-                sf1.logger.info('composer');
-                sf1.EventBus.trigger('ia.mainNavEvent',[{route: 'composer'}]);
-                sf1.EventBus.trigger('ia.loadRegionContentRequest',{
-                    region:'appMainRegion',
-                    module:'composer',
-                    view:'MainView'
-                });
             }
         };
 

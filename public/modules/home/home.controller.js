@@ -6,8 +6,8 @@
  * Time: 10:57 PM
  *
  */
-define(['sf1','modules/home/home.models','modules/home/home.views','text!modules/home/home.templates.html','post'],
-    function(sf1, Model, View, template, Post){
+define(['sf1','modules/home/home.models','modules/home/home.views','text!modules/home/home.templates.html'],
+    function(sf1, Model, View, template){
         var anchorSelector = '#TemplateContainer';
 
         _.templateSettings.variable = 'S';
@@ -26,16 +26,6 @@ define(['sf1','modules/home/home.models','modules/home/home.views','text!modules
 
             targetLayoutView.on('show',function(layout){
                 indexContainerRegion.show(indexView);
-            });
-
-            var recentPostCollection = new Post.PostCollection();
-            recentPostCollection.fetch({
-                url:'/recentposts',
-                success:function(response){
-                    targetLayoutView.recentPostRegion.show(new Post.RecentPostListView({
-                        collection:recentPostCollection
-                    }));
-                }
             });
 
             return targetLayoutView;
