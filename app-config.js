@@ -8,11 +8,11 @@
  */
 var config = {
     app: {
-        friendlyName: 'Seanica',
-        name:'seanica'
+        friendlyName: 'sf1',
+        name:'sf1'
     },
     db: {
-        db: 'seanica',
+        db: 'sf1',
         host: 'localhost',
         port: 27017,  // optional, default: 27017
         collection: 'sessions', // optional, default: sessions
@@ -22,8 +22,8 @@ var config = {
             }
         }
     },
-    salt: '076ee61d63aa10a999ea872411e433bc',
+    salt: '076ee61d63aadedwa99ea872411e433bc',
     cookieSecretString: 'a secret string',
-    localPort: 3004
+    localPort: 3005
 };
 module.exports = config;
