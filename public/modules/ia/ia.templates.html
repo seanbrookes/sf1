@@ -15,18 +15,22 @@
 
 
 
-        <ul>
-            <li>
-                <a href="#home"><span>Home</span></a>
-            </li>
-            <li>
-                <a href="#user"><span>Users</span></a>
-            </li>
-            <li>
-                <a href="#admin"><span>Admin</span></a>
-            </li>
-        </ul>
 
+
+
+        <!--<div class="collapse navbar-collapse navbar-ex1-collapse">-->
+            <!--<ul class="nav navbar-nav">-->
+                <li>
+                    <a href="#home">Home</a>
+                </li>
+                <li>
+                    <a href="#user">Users</a>
+                </li>
+                <li>
+                    <a href="#admin">Admin</a>
+                </li>
+            <!--</ul>-->
+        <!--</div>&lt;!&ndash; /.navbar-collapse &ndash;&gt;-->
 
     </script>
 
@@ -39,8 +43,24 @@
 
     <!-- Global Navigation Container -->
     <script id="IAGlobalNavTemplate" type="text/template" class="ui-template">
-        <nav class="global-nav-container nav-h">
-            <ul></ul>
+        <nav class="global-nav-container" role="navigation">
+
+
+
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li data-el-name="global.signup">
+                        <a href="/#signup" data-i18n="ia.signup">sign up</a>
+                    </li>
+                    <li data-el-name="global.login">
+                        <a href="/#login" data-i18n="ia.login">log in</a>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+
+
+
+
         </nav>
     </script>
 
