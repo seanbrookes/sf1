@@ -3,44 +3,34 @@
     <!-- Login -->
     <script type="text/template" id="LoginFormTemplate" class="ui-template">
         <h2 class="view-heading primary-view">Login</h2>
-        <form class="form-login forms columnar">
-            <ul>
-                <li>
-                    <label for="Email" class="bold">email</label>
-                    <input type="email" name="Email" id="Email" placeholder="Email Address" >
-                </li>
-                <li>
-                    <label for="Password" class="bold">password</label>
-                    <input type="password" name="Password" id="Password" placeholder="Password">
-                </li>
-                <li>
-                    <div class="button-group push">
-                        <button class="btn-form btn-login">login</button>
-                    </div>
-                </li>
-            </ul>
+        <form   role="form">
+            <div class="form-group">
+                    <label for="Email" class="bold">Email</label>
+                    <input type="email" class="form-control" name="Email" id="Email" placeholder="Email Address" >
+            </div>
+            <div class="form-group">
+                    <label for="Password" class="bold">Password</label>
+                    <input type="password"  class="form-control" name="Password" id="Password" placeholder="Password">
+            </div>
+            <button class="btn-form btn-login">login</button>
         </form>
     </script>
 
     <!-- Sign Up -->
     <script type="text/template" id="SignUpTemplate" class="ui-template">
         <h2 class="view-heading primary-view">Signup</h2>
-        <form class="form-signup forms columnar"  data-id="<%- S._id%>" action="#" method="POST">
-            <ul>
-                <li>
-                    <label for="Email" >Email</label>
-                    <input type="email" name="Email" id="Email" placeholder="Email Address">
-                </li>
-                <li>
-                    <label for="Password">Password</label>
-                    <input type="password" name="Password" id="Password" placeholder="Password">
-                </li>
-                <li class="push">
-                    <div class="button-group">
-                        <button class="btn-form btn-signup">sign up</button>
-                    </div>
-                </li>
-            </ul>
+        <form  role="form" data-id="<%- S._id%>" action="#" method="POST">
+            <div class="form-group">
+                <label for="Email" >Email</label>
+                <input type="email"  class="form-control" name="Email" id="Email" placeholder="Email Address">
+            </div>
+            <div class="form-group">
+                <label for="Password">Password</label>
+                <input type="password"  class="form-control" name="Password" id="Password" placeholder="Password">
+            </div>
+
+            <button class="btn-form btn-signup">sign up</button>
+
         </form>
     </script>
 
