@@ -6,33 +6,29 @@
  * Time: 10:57 PM
  *
  */
-define(['sf1','modules/home/home.models','modules/home/home.views','text!modules/home/home.templates.html'],
-    function(sf1, Model, View, template){
-        var anchorSelector = '#TemplateContainer';
+define(['sf1', 'modules/home/home.models', 'modules/home/home.views', 'text!modules/home/home.templates.html'],
+  function (sf1, Model, View, template) {
+    var anchorSelector = '#TemplateContainer';
 
-        _.templateSettings.variable = 'S';
-        var baseMarkup = $(template);
-        // attach the module template markup to the DOM
-        $(anchorSelector).append(baseMarkup);
+    _.templateSettings.variable = 'S';
+    var baseMarkup = $(template);
+    // attach the module template markup to the DOM
+    $(anchorSelector).append(baseMarkup);
 
-        var indexView = function(){
-            var targetLayoutView = new View.IndexLayout();
+    var indexView = function () {
+      var homeLayoutView = new View.HomeLayout();
 
-            var indexView = new View.IndexView();
+      var homeView = new View.helloWorldView();
 
-            var indexContainerRegion = new Backbone.Marionette.Region({
-                el: ".view-index"
-            });
+      homeLayoutView.on('show', function () {
+        homeLayoutView.homeContentRegion.show(homeView);
+      });
 
-            targetLayoutView.on('show',function(layout){
-                indexContainerRegion.show(indexView);
-            });
+      return homeLayoutView;
+    };
 
-            return targetLayoutView;
-        };
-
-        return{
-            IndexView:indexView
-        };
-    }
+    return{
+      IndexView: indexView
+    };
+  }
 );
