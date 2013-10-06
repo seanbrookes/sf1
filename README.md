@@ -77,6 +77,7 @@ I'm sure it is straight forward but my work around to this point is simply inclu
 - archive/export
 - dynamic page targeting
 - dynamic host targeting
+- RSS feed
 
 License: MIT
 Attribution: Sean Brookes
