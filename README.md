@@ -1,6 +1,28 @@
 Simple Framework One is an application bootstrap project based on modular JavaScript patterns.  It is designed to be a turn-key
  application stub to get a developer up and running with an application as easily as possible.
 
+- a jump off point
+- dmonstrate the following
+-- mongo db
+-- Nodejs based rest web service
+-- backbonejs (marionettejs) based front end
+-- requires AMD dependency managment on the client
+-- simple account / authentication implementation
+-- modular JavaScript
+-- event driven architecture
+
+- use as much or as little of the framework
+
+- decoupled front/back end so you can replace the front end with [insert your favorite MVC framework here]
+-- see sf2
+
+- it is an exploration of scalable, flexible full stack JavaScript application architecture.
+
+- It is not a fully baked concept or a treatise on coding skill.  That being said the core concepts are considered robust there
+has been not attempt to harden the application for production so issues such as packaging, building, security, etc are conspicuously
+absent
+
+
  I use it to form the core of any projects I want to get up and running quickly and just start writing modules.
 
 ## Getting started
@@ -32,7 +54,7 @@ It is pretty bare bones so there isn't much 'application real-estate' when you b
 - marionette
 - requirejs
 - less CSS
-- kube CSS
+- bootstrap (3)
 
 ## Features:
 - turn-key modular js application engine - require / marionette  oriented
@@ -44,10 +66,17 @@ It is pretty bare bones so there isn't much 'application real-estate' when you b
 ## Backlog:
 - unit tests
 
-## Known Issues
+## Known Issues / Todo
 - You have to have mondodb installed
 - Currently the Winston logging module expects a 'logs' folder in the root of the project.  I haven't had time to set this configuration to turn off the dependency in a production deployment.
 I'm sure it is straight forward but my work around to this point is simply include the folder in my deployments.
+- change from cookie session to OAuth
+- implement autosave
+
+## road map
+- archive/export
+- dynamic page targeting
+- dynamic host targeting
 
 License: MIT
 Attribution: Sean Brookes

@@ -20,7 +20,7 @@ var logger = new (winston.Logger)({
 });
 
 var app = express();
-
+app.set('env', process.env.NODE_ENV || 'development');
 
 
 app.set('port', process.env.PORT || config.localPort);
@@ -52,11 +52,6 @@ app.use(app.router);
 
 
 
-app.configure('development', function(){
-    app.use(express.errorHandler());
-});
-
-
 /*
 *
 * ROUTES
@@ -80,7 +75,6 @@ http.createServer(app).listen(app.get('port'), function(){
 	console.log('|');
 	console.log('|');
 
-// TODO - parameterize the name of the application
 // TODO - set configuration to enable and turn off this messaging
 
 
@@ -112,7 +106,9 @@ http.createServer(app).listen(app.get('port'), function(){
 			console.log('|');
 			console.log('|');
 		}
-		console.log('|==========================================');
+    console.log(' NODE_ENV  ' + process.env.NODE_ENV);
+
+    console.log('|==========================================');
 		console.log('|==========================================');
 		console.log('|');
 		console.log('|');
