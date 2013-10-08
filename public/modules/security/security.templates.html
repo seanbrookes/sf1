@@ -4,7 +4,7 @@
     <script type="text/template" id="LoginFormTemplate" class="ui-template">
         <h2 class="view-heading primary-view">Login</h2>
 
-        <form role="form">
+        <form role="form" data-el-name="loginForm">
             <div class="form-group">
                 <label for="Email" class="bold">Email</label>
                 <input type="email" class="form-control" name="Email" id="Email" placeholder="Email Address">
@@ -21,7 +21,7 @@
     <script type="text/template" id="SignUpTemplate" class="ui-template">
         <h2 class="view-heading primary-view">Signup</h2>
 
-        <form role="form" data-id="<%- S._id%>" action="#" method="POST">
+        <form role="form" data-id="<%- S._id%>" data-el-name="signUpForm" action="#" method="POST">
             <div class="form-group">
                 <label for="Email">Email</label>
                 <input type="email" class="form-control" name="Email" id="Email" placeholder="Email Address">

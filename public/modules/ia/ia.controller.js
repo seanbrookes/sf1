@@ -110,17 +110,17 @@ define(['sf1', 'modules/ia/ia.models', 'modules/ia/ia.views', 'text!modules/ia/i
            *
            * */
           if (response.isAuthenticated) {
-            $('[data-i18n="ia.login"]').text('hello ' + response.userName + ' (logout)');
-            $('[data-i18n="ia.signup"]').hide();
-            $('[data-i18n="ia.login"]').click(function (event) {
+            $('[data-el-label="ia.login"]').text(sf1.getI18nLabel('ia.greeting',{userName:response.userName}));
+            $('[data-el-name="global.signup"]').hide();
+            $('[data-el-label="ia.login"]').click(function (event) {
               event.preventDefault();
               sf1.EventBus.trigger('ia.logoutRequest');
             });
           }
           else {
             sf1.EventBus.trigger('route-event', {route: 'login'});
-            $('[data-i18n="ia.login"]').text('login');
-            $('[data-i18n="ia.login"]').click(function (event) {
+            $('[data-el-label="ia.login"]').text('Login');
+            $('[data-el-label="ia.login"]').click(function (event) {
               event.preventDefault();
               document.location.href = "#login";
             });
@@ -157,7 +157,7 @@ define(['sf1', 'modules/ia/ia.models', 'modules/ia/ia.views', 'text!modules/ia/i
           else {
 
             sf1.EventBus.trigger('route-event', {route: 'login'});
-            $('[data-i18n="ia.login"]').text('login');
+            $('[data-i18n="ia.login"]').text('Loasdfasdfgin');
             $('[data-i18n="ia.signup"]').show();
             $('[data-i18n="ia.login"]').click(function (event) {
               event.preventDefault();

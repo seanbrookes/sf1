@@ -1,8 +1,9 @@
 {
-    "ia": {
-        "home": "Home",
-        "admin": "Admin",
-        "signup": "Sign Up",
-        "login": "Loginaaa"
-    }
+  "ia": {
+    "home": "Home",
+    "admin": "Admin",
+    "signup": "Sign Up",
+    "login": "Login",
+    "greeting": "hello __userName__ (logout)"
+  }
 }

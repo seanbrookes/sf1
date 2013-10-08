@@ -23,10 +23,7 @@
                 <li>
                     <a href="#home">Home</a>
                 </li>
-                <li>
-                    <a href="#user">Users</a>
-                </li>
-                <li data-el-name="admin-login">
+                <li data-el-container="adminMenuItem">
                     <a href="#admin">Admin</a>
                 </li>
             <!--</ul>-->
@@ -50,10 +47,10 @@
             <div class="collapse navbar-collapse navbar-ex1-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li data-el-name="global.signup">
-                        <a href="/#signup" data-i18n="ia.signup">sign up</a>
+                        <a href="/#signup" data-el-label="ia.signup"><%= S.i18nLabel('ia.signup') %></a>
                     </li>
                     <li data-el-name="global.login">
-                        <a href="/#login" data-i18n="ia.login">log in</a>
+                        <a href="/#login" data-el-label="ia.login"><%= S.i18nLabel('ia.login') %></a>
                     </li>
                 </ul>
             </div><!-- /.navbar-collapse -->

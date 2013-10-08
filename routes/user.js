@@ -18,12 +18,13 @@
  *
  */
 
+
+
+
 var User = require('../models/user-model');
-var PendingUser = require('../models/pendingUser-model');
 var winston = require('winston');
-//var events = require('events');
-//var EE = require('events').EventEmitter;
-//var EventBus = new EE();
+var http = require('http');
+
 var logger = new (winston.Logger)({
 	transports: [
 		new (winston.transports.Console)(),
@@ -162,9 +163,12 @@ var getToken = function(){
  */
 exports.postAuthenticate = function(req, res){
 	logger.info('login attempt');
+  var email = req.param('email', null);
+  var password = req.param('password', null);
+
 	if (req.body){
         logger.info(JSON.stringify(req.body));
-		if(req.body.email && req.body.password){
+		if(email && password){
 			try{
 				/**
 				 * User.getAuthenticated
@@ -172,7 +176,7 @@ exports.postAuthenticate = function(req, res){
 				 * Primary server auth request method
 				 *
 				 */
-				User.getAuthenticated(req.body.email, req.body.password, function(err, user, reason){
+				User.getAuthenticated(email, password, function(err, user, reason){
 
 					// make sure there is no error on auth attempt
 					if (!err){

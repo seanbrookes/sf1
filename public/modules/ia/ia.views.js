@@ -10,6 +10,12 @@ define(['sf1', 'marionette'],
   function (sf1, Marionette) {
 
 
+    var viewHelpers = {
+      i18nLabel:function(key){
+        return sf1.getI18nLabel(key);
+      }
+    };
+
     var indexView = Backbone.Marionette.CompositeView.extend({
         template: '#IAIndexTemplate'
 
@@ -18,7 +24,13 @@ define(['sf1', 'marionette'],
     var mainNavView = Backbone.Marionette.ItemView.extend({
       template: '#IAMainNavTemplate',
       tagName: 'ul',
-      className: 'nav nav-pills'
+      className: 'nav nav-pills',
+      templateHelpers:viewHelpers,
+      onShow:function(){
+        if(!sf1.isUserAuth()){
+          $('[data-el-container="adminMenuItem"]').hide();
+        }
+      }
 //      attributes:function(){
 //        return {
 //          role:'navigation'
@@ -37,8 +49,9 @@ define(['sf1', 'marionette'],
      * */
     var globalNavView = Backbone.Marionette.ItemView.extend({
       template: '#IAGlobalNavTemplate',
+      templateHelpers:viewHelpers,
       onShow: function (event) {
-        $('.global-nav-container').i18n();
+        //$('.global-nav-container').i18n();
         sf1.EventBus.trigger('ia.configureGreetingRequest');
       }
     });
