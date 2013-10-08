@@ -6,8 +6,8 @@
  * Time: 10:57 PM
  *
  */
-define(['sf1', 'modules/home/home.models', 'modules/home/home.views', 'text!modules/home/home.templates.html'],
-  function (sf1, Model, View, template) {
+define(['sf1', 'mediator', 'modules/home/home.models', 'modules/home/home.views', 'text!modules/home/home.templates.html'],
+  function (sf1, Mediator, Model, View, template) {
     var anchorSelector = '#TemplateContainer';
 
     _.templateSettings.variable = 'S';
@@ -19,6 +19,8 @@ define(['sf1', 'modules/home/home.models', 'modules/home/home.views', 'text!modu
       var homeLayoutView = new View.HomeLayout();
 
       var homeView = new View.helloWorldView();
+
+      Mediator.fire('toast');
 
       homeLayoutView.on('show', function () {
         homeLayoutView.homeContentRegion.show(homeView);

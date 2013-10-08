@@ -14,6 +14,7 @@ require.config({
     'jquery': 'scripts/lib/jquery-1.8.2.min',
     'cookie': 'scripts/lib/plugins/jquery.cookie',
     'tabs': 'scripts/lib/plugins/kube.tabs',
+    'mediator' : 'mediator',
     'contextmenu': 'scripts/lib/plugins/jquery.contextmenu',
     'underscore': 'scripts/lib/underscore',
     'json2': 'scripts/lib/json2',
@@ -36,7 +37,7 @@ require.config({
     'eventbus': 'eventbus',
     'user': 'modules/user/user.controller',
     'modal': 'scripts/lib/plugins/jquery.simplemodal-1.4.4',
-    'toast': 'scripts/lib/plugins/jquery.toastmessage.js',
+    'toast': 'scripts/lib/plugins/jquery.toastmessage',
     'chai': '/tests/libs/chai'
 
 
