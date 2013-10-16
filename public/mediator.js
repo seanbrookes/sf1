@@ -8,19 +8,18 @@
 define(['sf1','eventbus'],function(sf1, EventBus){
 
   var mediator = {
-    toast:function(){
+    'mediator.announce.success':function(obj){
       require(['toast'],function(mod){
-        $().toastmessage('showSuccessToast', "heck ya created");
-        sf1.logger.info('Hell Ya');
+        $().toastmessage('showSuccessToast', obj.msg);
 
       });
     }
   };
 
-  function fire(command){
+  function fire(command,options){
 
     if (mediator[command]){
-      mediator[command]();
+      mediator[command](options);
     }
   }
 

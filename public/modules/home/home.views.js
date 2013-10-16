@@ -6,11 +6,14 @@
  * Time: 10:58 PM
  *
  */
-define(['sf1', 'marionette'],
-  function (sf1, Marionette) {
+define(['sf1', 'marionette','mediator'],
+  function (sf1, Marionette, Mediator) {
 
     var helloWorldView = Backbone.Marionette.ItemView.extend({
-        template: '#IndexTemplate'
+        template: '#IndexTemplate',
+        onShow:function(){
+          Mediator.fire('mediator.announce.success',{msg:'[Home View] Hello World'});
+        }
       }
     );
     var homeDefaultLayout = Backbone.Marionette.Layout.extend({

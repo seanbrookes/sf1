@@ -20,7 +20,6 @@ define(['sf1', 'mediator', 'modules/home/home.models', 'modules/home/home.views'
 
       var homeView = new View.helloWorldView();
 
-      Mediator.fire('toast');
 
       homeLayoutView.on('show', function () {
         homeLayoutView.homeContentRegion.show(homeView);
