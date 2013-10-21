@@ -2,7 +2,7 @@ Simple Framework One is an application bootstrap project based on modular JavaSc
  application stub to get a developer up and running with an application as easily as possible.
 
 - a jump off point
-- dmonstrate the following
+- demonstrate the following
 -- mongo db
 -- Nodejs based rest web service
 -- backbonejs (marionettejs) based front end
@@ -32,7 +32,7 @@ absent
 4) optional - edit the package.json/app-config files to change ports, app names, etc.
 5) npm install
 
-If everything goes according to plan you shold be able to bring up the app.
+If everything goes according to plan you should be able to bring up the app.
 
 It is pretty bare bones so there isn't much 'application real-estate' when you begin.  This is just a jumpint off point.
 
